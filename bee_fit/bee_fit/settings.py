@@ -83,8 +83,8 @@ DATABASES = {
         #'NAME': os.path.join(BASE_DIR, 'bee_fit'),
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bee_fit',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'USER': 'aurore',
+        'PASSWORD': '171090',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
