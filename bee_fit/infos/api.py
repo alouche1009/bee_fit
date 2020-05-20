@@ -3,8 +3,16 @@ from rest_framework import viewsets, permissions
 from .serializers import InfosSerializer
 
 class InfosViewSet(viewsets.ModelViewSet):
-    queryset = Infos.objects.all()
     permissions_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
     serializer_class = InfosSerializer
+
+    def get_queryset(self):
+        return self.request.user.infos.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+ 

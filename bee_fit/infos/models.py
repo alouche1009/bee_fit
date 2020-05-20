@@ -53,4 +53,4 @@ class Infos(models.Model):
         max_length = 5,
         choices=DIABETIQUE_CHOICES
         )    
-        #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="infos", on_delete=models.CASCADE, null=True)

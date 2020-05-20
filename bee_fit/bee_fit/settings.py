@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'infos',
     "frontend",
-    'accounts.apps.AccountsConfig',  # added
-    'knox',  # added
+    'accounts.apps.AccountsConfig',  
+    'knox',  
 ]
 
 MIDDLEWARE = [
@@ -141,7 +141,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
 REST_FRAMEWORK = {
-'DEFAULT_AUTHENTICATION_CLASSES': (  # added
+'DEFAULT_AUTHENTICATION_CLASSES': (  
         'knox.auth.TokenAuthentication',
     ),
     'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",

@@ -129,7 +129,7 @@ export class Form extends Component {
               <option value="GLUTEN">Gluten</option>
               <option value="VEGETALIEN">Végétalien</option>
               <option value="VEGETARIEN">Végétarien</option>
-              <option value="ARRACHIDES">Arachides</option>
+              <option value="ARACHIDES">Arachides</option>
               <option value="FRUITS DE MER">Fruits de mer</option>
             </select>
           </div>

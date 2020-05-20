@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USERS_INFOS, ADD_USERS_INFOS, DELETE_USERS_INFOS, GET_ERRORS } from './types';
+import { GET_USERS_INFOS, ADD_USERS_INFOS, DELETE_USERS_INFOS } from './types';
 import { createMessage, returnErrors } from './messages';
 
 

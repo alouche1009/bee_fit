@@ -10,6 +10,9 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import AlertTemplate from 'react-alert-template-basic';
 import PrivateRoute from './common/PrivateRoute'; // added
 import Home from "./layout/Home";
+import Login from "./accounts/login";
+import Register from "./accounts/register";
+
 
 const alertOptions = {
   timeout: 3000,
@@ -26,7 +29,11 @@ class App extends Component {
               <Header />
               <Alerts />
               <div className="container">
-                <Profil />
+                <Switch>
+                  <Route exact path="/" component = {Home} />
+                  <Route exact path="/register" component = {Register} />
+                  <Route exact path="/login" component = {Login} />
+                  </Switch>  
               </div>
             </Fragment>
           </Router>
