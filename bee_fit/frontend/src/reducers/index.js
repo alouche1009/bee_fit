@@ -7,7 +7,7 @@ import auth from './auth'; // added
 export default combineReducers({
     infos,
     errors,
-    messages
+    messages,
     auth // added
 
 });
