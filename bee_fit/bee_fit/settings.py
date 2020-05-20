@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'infos',
     "frontend",
+    'accounts.apps.AccountsConfig',  # added
+    'knox',  # added
 ]
 
 MIDDLEWARE = [
@@ -83,8 +85,8 @@ DATABASES = {
         #'NAME': os.path.join(BASE_DIR, 'bee_fit'),
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bee_fit',
-        'USER': 'aurore',
-        'PASSWORD': '171090',
+        'USER': 'guilhem',
+        'PASSWORD': 'guilhem',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -130,7 +132,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
-      'rest_framework.authentication.TokenAuthentication',
-    )
+'DEFAULT_AUTHENTICATION_CLASSES': (  # added
+        'knox.auth.TokenAuthentication',
+    ),
+    'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
 }
+
