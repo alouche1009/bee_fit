@@ -1,4 +1,4 @@
-from Users.models import Infos
+from infos.models import Infos
 from rest_framework import viewsets, permissions
 from .serializers import InfosSerializer
 

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import users from './users.js';
+import infos from './infos.js';
+import errors from './errors';
 
 export default combineReducers({
-    users
+    infos,
+    errors
 
 });

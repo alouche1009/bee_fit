@@ -3,7 +3,7 @@ from .api import InfosViewSet
 
 
 router = routers.DefaultRouter()
-router.register('api/Users', InfosViewSet, 'Users')
+router.register('api/infos', InfosViewSet, 'infos')
 
 urlpatterns = router.urls
 
