@@ -33,8 +33,7 @@ class App extends Component {
         </AlertProvider>
       </Provider>
     );
-  }
-        <Home />
+}
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
