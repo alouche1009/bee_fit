@@ -9,6 +9,7 @@ import { Provider as AlertProvider } from 'react-alert';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import AlertTemplate from 'react-alert-template-basic';
 import PrivateRoute from './common/PrivateRoute'; // added
+import Home from "./layout/Home";
 
 const alertOptions = {
   timeout: 3000,
@@ -33,6 +34,7 @@ class App extends Component {
       </Provider>
     );
   }
+        <Home />
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
