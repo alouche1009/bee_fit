@@ -42,7 +42,6 @@ export class Login extends Component {
                 value={username}
               />
             </div>
-
             <div className="form-group">
               <label>Password</label>
               <input
@@ -53,14 +52,13 @@ export class Login extends Component {
                 value={password}
               />
             </div>
-
             <div className="form-group">
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
             </div>
             <p>
-              Vous n'avez pas de compte? <Link to="/register">Sign up</Link>
+              Vous n'avez pas de compte ?  <Link to="/register">Register</Link>
             </p>
           </form>
         </div>

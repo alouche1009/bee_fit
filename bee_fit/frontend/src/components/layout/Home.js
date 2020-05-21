@@ -108,7 +108,6 @@ export class Home extends Component {
                         <li class="fas fa-check w-100">Diabétique</li>
                       </ul>
                     </p>
-
                     <button
                       type="button"
                       class="btn btn-md btn-block btn-primary"
@@ -129,7 +128,6 @@ export class Home extends Component {
                       <li class="fas fa-check w-100">Diabétique</li>
                     </ul>
                   </p>
-
                   <button
                     type="button"
                     class="btn btn-md btn-block btn-primary"
@@ -149,7 +147,6 @@ export class Home extends Component {
                       <li class="fas fa-check w-100">Diabétique</li>
                     </ul>
                   </p>
-
                   <button
                     type="button"
                     class="btn btn-md btn-block btn-primary"
@@ -169,7 +166,6 @@ export class Home extends Component {
                       <li class="fas fa-check w-100">Diabétique</li>
                     </ul>
                   </p>
-
                   <button
                     type="button"
                     class="btn btn-md btn-block btn-primary"

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'infos',
     "frontend",
-    'accounts.apps.AccountsConfig',  
+    'accounts',
     'knox',  
 ]
 

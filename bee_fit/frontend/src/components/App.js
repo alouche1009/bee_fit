@@ -12,7 +12,7 @@ import PrivateRoute from './common/PrivateRoute'; // added
 import Home from "./layout/Home";
 import Login from "./accounts/login";
 import Register from "./accounts/register";
-
+import { loadUser } from '../actions/auth';
 
 const alertOptions = {
   timeout: 3000,
@@ -20,6 +20,9 @@ const alertOptions = {
 };
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Provider store={store}>
@@ -30,17 +33,18 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <Route exact path="/" component = {Home} />
-                  <Route exact path="/register" component = {Register} />
-                  <Route exact path="/login" component = {Login} />
-                  </Switch>  
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                  <PrivateRoute exact path="/profil" component={Profil} />
+                </Switch>
               </div>
             </Fragment>
           </Router>
         </AlertProvider>
       </Provider>
     );
-}
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));

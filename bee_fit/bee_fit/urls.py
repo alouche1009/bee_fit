@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('infos.urls')),
-    path('api/auth/', include('accounts.api.urls')),  # added
+    path('', include('accounts.urls'))
 ]
 
 if settings.DEBUG:

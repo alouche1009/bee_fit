@@ -1,8 +1,48 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from '../../actions/auth'
 
 export class Header extends Component {
+  static propTypes = {
+    auth: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired,
+  };
+
   render() {
+    const { isAuthenticated, user } = this.props.auth;
+    const authLinks = (
+      <ul >
+        <span >
+          <strong>{user ? `Welcome ${user.username}` : ''}</strong>
+        </span>
+        <li className="nav-item">
+          <button onClick={this.props.logout} >
+            Logout
+          </button>
+        </li>
+        <li className="nav-item">
+          <Link to="/profil" class="" >
+            <i class="fas fa-user-plus"></i> Profil
+          </Link>
+        </li>
+      </ul>
+    );
+    const guestLinks = (
+      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li className="nav-item">
+          <Link to="/register" class="fas fa-user-plus">
+            Register
+        </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/login" class="fas fa-user-plus">
+            Login
+        </Link>
+        </li>
+      </ul>
+    );
     return (
       <header>
         <div id="head-logo">
@@ -10,11 +50,8 @@ export class Header extends Component {
             <img src="../../static/frontend/images/logo.jpg" />
           </a>
         </div>
-
         <div class="container-fluid d-flex justify-content-end menu-login">
-          <Link to="/login" class="" >
-            <i class="fas fa-user-plus"></i> Inscription
-          </Link>
+          {isAuthenticated ? authLinks : guestLinks}
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
@@ -28,7 +65,6 @@ export class Header extends Component {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mx-auto ">
               <li class="nav-item active">
@@ -48,7 +84,6 @@ export class Header extends Component {
                 >
                   Nos services
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">
                     Votre consommation
@@ -94,4 +129,8 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+const mapStatetToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStatetToProps, { logout })(Header);

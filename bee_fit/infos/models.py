@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-
-
 class Infos(models.Model):
     LACTOSE = 'LACTOSE'
     GLUTEN = 'GLUTEN'
@@ -12,7 +10,7 @@ class Infos(models.Model):
     ARACHIDES = 'ARACHIDES'
     FRUITS_DE_MER = 'FRUITS DE MER'
     FEMME = 'FEMME'
-    HOMME ='HOMME'
+    HOMME = 'HOMME'
     NON_BINAIRE = 'NON BINAIRE'
     OUI = 'OUI'
     NON = 'NON'
@@ -33,24 +31,29 @@ class Infos(models.Model):
         (ARACHIDES, 'Arachides'),
         (FRUITS_DE_MER, 'Fruits de mer'),
     ]
-    age = models.PositiveIntegerField(validators=[ MaxValueValidator(100), MinValueValidator(18)], default = 0)
+    age = models.PositiveIntegerField(
+        validators=[MaxValueValidator(100), MinValueValidator(18)], default=0)
     sexe = models.CharField(
-        max_length = 11,
+        max_length=11,
         choices=SEXE_CHOICES,
         default=FEMME,
-        )
-    taille = models.PositiveIntegerField(validators=[ MaxValueValidator(250), MinValueValidator(80)], default = 0)
-    poids = models.FloatField(validators=[ MaxValueValidator(300), MinValueValidator(0)], default = 0)
-    objectif_poids = models.FloatField(validators=[ MaxValueValidator(300), MinValueValidator(20)], default = 0)
+    )
+    taille = models.PositiveIntegerField(
+        validators=[MaxValueValidator(250), MinValueValidator(80)], default=0)
+    poids = models.FloatField(
+        validators=[MaxValueValidator(300), MinValueValidator(0)], default=0)
+    objectif_poids = models.FloatField(
+        validators=[MaxValueValidator(300), MinValueValidator(20)], default=0)
     expected_calories = models.IntegerField(default=2000)
     allergies = models.CharField(
-        max_length = 20,
+        max_length=20,
         choices=ALLERGIES_CHOICES,
-        null = True,
-        blank = True
-        )
+        null=True,
+        blank=True
+    )
     diabetique = models.CharField(
-        max_length = 5,
+        max_length=5,
         choices=DIABETIQUE_CHOICES
-        )    
-    user = models.ForeignKey(User, related_name="infos", on_delete=models.CASCADE, null=True)
+    )
+    user = models.ForeignKey(User, related_name="infos",
+                             on_delete=models.CASCADE, null=True)
