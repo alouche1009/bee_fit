@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'infos',
     "frontend",
     'accounts',
-    'knox',  
+    'knox', 
+    'multiselectfield' 
 ]
 
 MIDDLEWARE = [

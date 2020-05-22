@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addUsersInfos } from '../../actions/infos';
-
+import Select from 'react-select';
 export class Form extends Component {
+ 
   state = {
     age: '',
     sexe: '',
@@ -11,7 +12,7 @@ export class Form extends Component {
     poids: '',
     objectif_poids: '',
     allergies: '',
-    diabetique: '',
+    diabetique: ''
   };
 
   static propTypes = {
@@ -32,7 +33,7 @@ export class Form extends Component {
       poids: '',
       objectif_poids: '',
       allergies: '',
-      diabetique: '',
+      diabetique: '',      
     });
   };
 
