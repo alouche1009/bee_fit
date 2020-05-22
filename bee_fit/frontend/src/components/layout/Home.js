@@ -4,10 +4,10 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <div class="container-fluid">
-          <div class="row no-padding-b">
-            <div class="col-md-12">
-              <div class="carousel w-80 mx-auto slide" id="carousel-786012">
+        <div class="container-fluid slide-perso">
+          <div class="row  mx-auto no-padding-b">
+            <div class="col-md-10">
+              <div class="carousel  mx-auto slide" id="carousel-786012">
                 <ol class="carousel-indicators">
                   <li
                     data-slide-to="0"
@@ -82,6 +82,13 @@ export class Home extends Component {
                 </a>
               </div>
             </div>
+            <div class="col-md-2 mobile-img">
+              <img
+                src="../../static/frontend/images/app-exemple.png"
+                class="img-fluid"
+                alt="Responsive image"
+              />
+            </div>
           </div>
         </div>
         <div class="container">
@@ -96,11 +103,11 @@ export class Home extends Component {
               </p>
               <div class="row p-top-perso">
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <h3 class="text-center">
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
                       <i class="fas fa-apple-alt w-100"></i>
                       Aide nutritive
-                    </h3>
+                    </h4>
                     <p>
                       <ul class="list-perso">
                         <li class="fas fa-check w-100">Diabétique</li>
@@ -116,229 +123,250 @@ export class Home extends Component {
                     </button>
                   </div>
                 </div>
-                <div class="col-md-3 border">
-                  <h3 class="text-center">
-                    <i class="fas fa-search w-100"></i>
-                    Recherche d'aliments
-                  </h3>
-                  <p>
-                    <ul class="list-perso">
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                    </ul>
-                  </p>
-                  <button
-                    type="button"
-                    class="btn btn-md btn-block btn-primary"
-                  >
-                    Button
-                  </button>
+                <div class="col-md-3">
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
+                      <i class="fas fa-search w-100"></i>
+                      Recherche d'aliments
+                    </h4>
+                    <p>
+                      <ul class="list-perso">
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                      </ul>
+                    </p>
+
+                    <button
+                      type="button"
+                      class="btn btn-md btn-block btn-primary"
+                    >
+                      Button
+                    </button>
+                  </div>
                 </div>
-                <div class="col-md-3 border">
-                  <h3 class="text-center">
-                    <i class="fas fa-utensils w-100"></i>
-                    Recettes
-                  </h3>
-                  <p>
-                    <ul class="list-perso">
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                    </ul>
-                  </p>
-                  <button
-                    type="button"
-                    class="btn btn-md btn-block btn-primary"
-                  >
-                    Button
-                  </button>
+                <div class="col-md-3">
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
+                      <i class="fas fa-utensils w-100"></i>
+                      Recettes
+                    </h4>
+                    <p>
+                      <ul class="list-perso">
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                      </ul>
+                    </p>
+
+                    <button
+                      type="button"
+                      class="btn btn-md btn-block btn-primary"
+                    >
+                      Button
+                    </button>
+                  </div>
                 </div>
-                <div class="col-md-3 border">
-                  <h3 class="text-center">
-                    <i class="fas fa-dumbbell w-100"></i>
-                    Programme fitness
-                  </h3>
-                  <p>
-                    <ul class="list-perso">
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                      <li class="fas fa-check w-100">Diabétique</li>
-                    </ul>
-                  </p>
-                  <button
-                    type="button"
-                    class="btn btn-md btn-block btn-primary"
-                  >
-                    Button
-                  </button>
+                <div class="col-md-3">
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
+                      <i class="fas fa-dumbbell w-100"></i>
+                      Programme fitness
+                    </h4>
+                    <p>
+                      <ul class="list-perso">
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                      </ul>
+                    </p>
+
+                    <button
+                      type="button"
+                      class="btn btn-md btn-block btn-primary"
+                    >
+                      Button
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <h3>h3. Lorem ipsum dolor sit amet.</h3>
-                  <p class="text-left">
-                    Lorem ipsum dolor sit amet,{" "}
-                    <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                    sapien sapien. Curabitur in metus urna. In hac habitasse
-                    platea dictumst. Phasellus eu sem sapien, sed vestibulum
-                    velit. Nam purus nibh, lacinia non faucibus et, pharetra in
-                    dolor. Sed iaculis posuere diam ut cursus.{" "}
-                    <em>
-                      Morbi commodo sodales nisi id sodales. Proin consectetur,
-                      nisi id commodo imperdiet, metus nunc consequat lectus, id
-                      bibendum diam velit et dui.
-                    </em>{" "}
-                    Proin massa magna, vulputate nec bibendum nec, posuere nec
-                    lacus.{" "}
-                    <small>
-                      Aliquam mi erat, aliquam vel luctus eu, pharetra quis
-                      elit. Nulla euismod ultrices massa, et feugiat ipsum
-                      consequat eu.
-                    </small>
-                  </p>
-                </div>
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6"></div>
+        </div>
+
+        <div id="rowcentrale" class="container-fluid text-light">
+          <div class="container padding-interne-perso">
+            <div class="row no-padding-b">
+              <div class="col-md-12">
+                <div class="row no-padding-b align-items-center">
+                  <div class="col-md-6 ">
+                    <h3>Lorem</h3>
+                    <p class="text-left">
+                      Lorem ipsum dolor sit amet,{" "}
+                      <strong>consectetur adipiscing elit</strong>. Aliquam eget
+                      sapien sapien. Curabitur in metus urna. In hac habitasse
+                      platea dictumst. Phasellus eu sem sapien, sed vestibulum
+                      velit. Nam purus nibh, lacinia non faucibus et, pharetra
+                      in dolor. Sed iaculis posuere diam ut cursus.{" "}
+                    </p>
+                    <button type="button" class="btn btn-primary">
+                      Button
+                    </button>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6"></div>
+                  <div class="col-md-6">
+                    <div class="row no-padding-b p-b-img">
+                      <div class="col-md-6">
+                        <img
+                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          class="img-fluid"
+                          alt="Responsive image"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <img
+                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          class="img-fluid"
+                          alt="Responsive image"
+                        />
+                      </div>
+                    </div>
+                    <div class="row no-padding-b">
+                      <div class="col-md-6">
+                        <img
+                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          class="img-fluid"
+                          alt="Responsive image"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <img
+                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          class="img-fluid"
+                          alt="Responsive image"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary">
-                Button
-              </button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Heading</h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus. Etiam porta sem malesuada
-                magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
+        </div>
+
+        <div class="container">
+          <div class="row padding-interne-perso">
+            <div class="col-md-12 padding-interne-perso">
+              <div class="col-md-12 padding-interne-perso text-center">
+                <h2>
+                  {" "}
+                  <i class="fas fa-lock"></i> Nos services Premium
+                </h2>
+                <p>
+                  Donec id elit non mi porta gravida at eget metus. Fusce
+                  dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                  nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                  malesuada magna mollis euismod. Donec sed odio dui.
+                </p>
                 <a class="btn" href="#">
                   View details »
                 </a>
-              </p>
-              <div class="row">
+              </div>
+              <p></p>
+              <div class="row align-items-center">
                 <div class="col-md-6">
                   <img
-                    alt="Bootstrap Image Preview"
-                    src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"
+                    src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                    class="img-fluid"
+                    alt="Responsive image"
                   />
+                  <button
+                    type="button"
+                    class="btn btn-md btn-block btn-primary"
+                  >
+                    Devenir membre
+                  </button>
                 </div>
                 <div class="col-md-3">
-                  <p>
-                    Lorem ipsum dolor sit amet,{" "}
-                    <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                    sapien sapien. Curabitur in metus urna. In hac habitasse
-                    platea dictumst. Phasellus eu sem sapien, sed vestibulum
-                    velit. Nam purus nibh, lacinia non faucibus et, pharetra in
-                    dolor. Sed iaculis posuere diam ut cursus.{" "}
-                    <em>
-                      Morbi commodo sodales nisi id sodales. Proin consectetur,
-                      nisi id commodo imperdiet, metus nunc consequat lectus, id
-                      bibendum diam velit et dui.
-                    </em>{" "}
-                    Proin massa magna, vulputate nec bibendum nec, posuere nec
-                    lacus.{" "}
-                    <small>
-                      Aliquam mi erat, aliquam vel luctus eu, pharetra quis
-                      elit. Nulla euismod ultrices massa, et feugiat ipsum
-                      consequat eu.
-                    </small>
-                  </p>
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
+                      <i class="fas fa-apple-alt w-100"></i>
+                      Votre consommation
+                    </h4>
+                    <p>
+                      <ul class="list-perso">
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                      </ul>
+                    </p>
+                  </div>
                 </div>
                 <div class="col-md-3">
-                  <p>
-                    Lorem ipsum dolor sit amet,{" "}
-                    <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                    sapien sapien. Curabitur in metus urna. In hac habitasse
-                    platea dictumst. Phasellus eu sem sapien, sed vestibulum
-                    velit. Nam purus nibh, lacinia non faucibus et, pharetra in
-                    dolor. Sed iaculis posuere diam ut cursus.{" "}
-                    <em>
-                      Morbi commodo sodales nisi id sodales. Proin consectetur,
-                      nisi id commodo imperdiet, metus nunc consequat lectus, id
-                      bibendum diam velit et dui.
-                    </em>{" "}
-                    Proin massa magna, vulputate nec bibendum nec, posuere nec
-                    lacus.{" "}
-                    <small>
-                      Aliquam mi erat, aliquam vel luctus eu, pharetra quis
-                      elit. Nulla euismod ultrices massa, et feugiat ipsum
-                      consequat eu.
-                    </small>
-                  </p>
+                  <div class="col-md-12 border card-perso">
+                    <h4 class="text-center">
+                      <i class="fas fa-apple-alt w-100"></i>
+                      Suivi de poids
+                    </h4>
+                    <p>
+                      <ul class="list-perso">
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Diabétique</li>
+                      </ul>
+                    </p>
+                  </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary">
-                Button
-              </button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="text-center">h3. Lorem ipsum dolor sit amet.</h3>
-              <p>
-                Lorem ipsum dolor sit amet,{" "}
-                <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                sapien sapien. Curabitur in metus urna. In hac habitasse platea
-                dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam
-                purus nibh, lacinia non faucibus et, pharetra in dolor. Sed
-                iaculis posuere diam ut cursus.{" "}
-                <em>
-                  Morbi commodo sodales nisi id sodales. Proin consectetur, nisi
-                  id commodo imperdiet, metus nunc consequat lectus, id bibendum
-                  diam velit et dui.
-                </em>{" "}
-                Proin massa magna, vulputate nec bibendum nec, posuere nec
-                lacus.{" "}
-                <small>
-                  Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit.
-                  Nulla euismod ultrices massa, et feugiat ipsum consequat eu.
-                </small>
-              </p>
-              <div class="row">
-                <div class="col-md-3">
-                  <img
-                    alt="Bootstrap Image Preview"
-                    src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"
-                    class="rounded-circle"
-                  />
-                </div>
-                <div class="col-md-3">
-                  <img
-                    alt="Bootstrap Image Preview"
-                    src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"
-                    class="rounded-circle"
-                  />
-                </div>
-                <div class="col-md-3">
-                  <img
-                    alt="Bootstrap Image Preview"
-                    src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"
-                    class="rounded-circle"
-                  />
-                </div>
-                <div class="col-md-3">
-                  <img
-                    alt="Bootstrap Image Preview"
-                    src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"
-                    class="rounded-circle"
-                  />
+        </div>
+        <div
+          id="rownous"
+          class="container-fluid text-light padding-interne-perso"
+        >
+          <div class="container text-light">
+            <div class="row no-padding-b">
+              <div class="col-md-12 text-center">
+                <h3 class="text-center">Qui sommes nous ?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet,{" "}
+                  <em>
+                    Morbi commodo sodales nisi id sodales. Proin consectetur,
+                    nisi id commodo imperdiet, metus nunc consequat lectus, id
+                    bibendum diam velit et dui.
+                  </em>{" "}
+                  Proin massa magna, vulputate nec bibendum nec, posuere nec
+                  lacus.{" "}
+                </p>
+                <div class="row no-padding-b padding-interne-perso">
+                  <div class="col-md-3">
+                    <img
+                      alt="Bootstrap Image Preview"
+                      src="../../static/frontend/images/guilhem.png"
+                      class="rounded-circle mw-100 img-fluid"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      alt="Bootstrap Image Preview"
+                      src="../../static/frontend/images/aurore.png"
+                      class="rounded-circle mw-100 img-fluid "
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      alt="Bootstrap Image Preview"
+                      src="../../static/frontend/images/marco.png"
+                      class="rounded-circle"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <img
+                      alt="Bootstrap Image Preview"
+                      src="../../static/frontend/images/sylvain.png"
+                      class="rounded-circle"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
