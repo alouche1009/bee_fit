@@ -6,7 +6,7 @@ export class Header extends Component {
       <header>
         <div id="head-logo">
           <a class="navbar-brand" href="#">
-            <img src="../../static/frontend/images/logo.jpg" />
+            <img src="../../static/frontend/images/logo_blanc.png" />
           </a>
         </div>
 
@@ -49,12 +49,12 @@ export class Header extends Component {
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
-                    Votre consommation
+                  <a class="dropdown-item disabled" href="#">
+                    <i class="fas fa-lock"></i>Votre consommation
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
-                    Suivi de poids
+                  <a class="dropdown-item disabled" href="#">
+                    <i class="fas fa-lock"></i> Suivi de poids
                   </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">
