@@ -194,6 +194,20 @@
     font-weight: 600;
     font-size: 18px;
   }
+
+  #footer .icons a {
+    color: red;
+    font-size: 63px;
+    line-height: 63px;
+}
+#footer .icons a:hover {
+    color: blue;
+    text-decoration:none;
+}
+
+#footer {
+        background-color: #dad9d9;
+}
   
   /***** Responsive *****/
   

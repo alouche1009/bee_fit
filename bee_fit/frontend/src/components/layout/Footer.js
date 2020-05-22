@@ -4,11 +4,11 @@ export class Footer extends Component {
   render() {
     return (
      
-     <div class="container-fluid">
-     <div class="container">
+     <div id="footer" class="container-fluid">
+     <div  class="container">
 	<div class="row p-top-perso">
 		<div class="col-md-12">
-			<div class="row">
+			<div class="row row d-flex align-items-end">
 				<div class="col-md-4">
 					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded" />
 					<h2>
@@ -53,15 +53,18 @@ export class Footer extends Component {
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<div class="row">
+					<div class="row icons text-center">
 						<div class="col-md-3">
-                        <i class="fab fa-facebook-f"></i>
+                        <a href="google.com" class="fab fa-facebook-f"></a>
 						</div>
 						<div class="col-md-3">
+                        <a class="fab fa-twitter"></a>
 						</div>
 						<div class="col-md-3">
+                        <a class="fab fa-instagram"></a>
 						</div>
 						<div class="col-md-3">
+                        <a class="fab fa-linkedin-in"></a>
 						</div>
 					</div>
 					<ul>
