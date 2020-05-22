@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { logout } from '../../actions/auth'
+import { logout } from "../../actions/auth";
 
 export class Header extends Component {
   static propTypes = {
@@ -13,33 +13,47 @@ export class Header extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
     const authLinks = (
-      <ul >
-        <span >
-          <strong>{user ? `Welcome ${user.username}` : ''}</strong>
-        </span>
-        <li className="nav-item">
-          <button onClick={this.props.logout} >
-            Logout
-          </button>
-        </li>
-        <li className="nav-item">
-          <Link to="/profil" class="" >
-            <i class="fas fa-user-plus"></i> Profil
-          </Link>
-        </li>
-      </ul>
+      <div class="logged">
+        <div class="text-center">
+          <p class="text-center">
+            <strong>
+              {user ? (
+                <div>
+                  {" "}
+                  Welcome <em>{user.username}</em>
+                </div>
+              ) : (
+                ""
+              )}
+            </strong>
+          </p>
+        </div>
+
+        <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li className="nav-item">
+            <Link class="fas fa-user-times" onClick={this.props.logout}>
+              Logout
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/profil" class="fas fa-user-cog">
+              Profil
+            </Link>
+          </li>
+        </ul>
+      </div>
     );
     const guestLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
         <li className="nav-item">
           <Link to="/register" class="fas fa-user-plus">
             Register
-        </Link>
+          </Link>
         </li>
         <li className="nav-item">
-          <Link to="/login" class="fas fa-user-plus">
+          <Link to="/login" class="fas fa-user-check">
             Login
-        </Link>
+          </Link>
         </li>
       </ul>
     );
@@ -70,7 +84,7 @@ export class Header extends Component {
               <li class="nav-item active">
                 <Link to="/" class="nav-link">
                   Accueil <span class="sr-only">(current)</span>
-                </ Link>
+                </Link>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -129,8 +143,8 @@ export class Header extends Component {
   }
 }
 
-const mapStatetToProps = state => ({
-  auth: state.auth
-})
+const mapStatetToProps = (state) => ({
+  auth: state.auth,
+});
 
 export default connect(mapStatetToProps, { logout })(Header);
