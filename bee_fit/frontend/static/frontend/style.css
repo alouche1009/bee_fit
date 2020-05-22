@@ -135,6 +135,17 @@
     font-size: 16px;
   }
   
+  .menu-login p {
+    position: relative;
+    margin-bottom: 0px;
+  }
+  .menu-login strong {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+  
   .menu-login .fas:before {
     font-weight: 800;
     font-family: "Font Awesome 5 Free";
@@ -164,6 +175,29 @@
     align-items: center;
     justify-content: center;
   }
+
+  .headphoto {
+    transform: scale(0.8);
+
+
+  }
+
+  .headphoto:hover {
+    transform: scale(1);
+    transition: 2s; 
+    cursor: pointer;   
+  }
+
+  .hoverhead:hover p.hideme  {
+      opacity: 1;
+      transition: 2s;
+      font-size: 30px
+
+  }
+  .hoverhead p.hideme {
+      opacity: 0;
+      transition: 2s;
+  }
   
   header {
     height: 450px;
@@ -183,6 +217,20 @@
     font-weight: 600;
     font-size: 18px;
   }
+
+  #footer .icons a {
+    color: red;
+    font-size: 63px;
+    line-height: 63px;
+}
+#footer .icons a:hover {
+    color: blue;
+    text-decoration:none;
+}
+
+#footer {
+        background-color: #dad9d9;
+}
   
   /***** Responsive *****/
   
@@ -193,7 +241,7 @@
     .menu-login a {
       color: #ffd01e;
       position: relative;
-      top: -50px;
+      /*top: -50px;*/
     }
     header li > a {
       color: white !important;
@@ -204,9 +252,9 @@
     header li {
       padding: 5px;
     }
-    .navbar-nav {
+    .navbar-collapse .navbar-nav {
       padding: 30px;
-      background-image: url(./images/bg1.jpg);
+      background-image: url(./images/bg1-d.jpg);
       background-size: cover;
       background-attachment: fixed;
     }

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 export class Home extends Component {
   render() {
@@ -339,33 +341,41 @@ export class Home extends Component {
                   lacus.{" "}
                 </p>
                 <div class="row no-padding-b padding-interne-perso">
-                  <div class="col-md-3">
-                    <img
-                      alt="Bootstrap Image Preview"
+                  <div class="col-md-3 hoverhead">
+                      <img onClick={() =>
+                        window.open("https://www.linkedin.com/in/guilhem-lacombe-037823144/", "_blank")
+                      }
                       src="../../static/frontend/images/guilhem.png"
-                      class="rounded-circle mw-100 img-fluid"
-                    />
+                      alt="Bootstrap Image Preview"
+                      class="rounded-circle mw-100 img-fluid headphoto"
+                    /><p class="hideme">Guilhem</p>
                   </div>
-                  <div class="col-md-3">
-                    <img
+                  <div class="col-md-3 hoverhead">
+                     <img onClick={() =>
+                        window.open("https://www.linkedin.com/in/aurore-louche/", "_blank")
+                      }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/aurore.png"
-                      class="rounded-circle mw-100 img-fluid "
-                    />
+                      class="rounded-circle mw-100 img-fluid headphoto "
+                    /><p class="hideme">Aurore</p>
                   </div>
-                  <div class="col-md-3">
-                    <img
+                   <div class="col-md-3 hoverhead">
+                      <img onClick={() =>
+                        window.open("https://www.linkedin.com/in/marco-di-fazio-3528a8104/", "_blank")
+                      }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/marco.png"
-                      class="rounded-circle"
-                    />
+                      class="rounded-circle headphoto"
+                    /><p class="hideme">Marco</p>
                   </div>
-                  <div class="col-md-3">
-                    <img
+                  <div class="col-md-3 hoverhead">
+                  <img onClick={() =>
+                        window.open("https://www.linkedin.com/in/sylvainneves/", "_blank")
+                      }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/sylvain.png"
-                      class="rounded-circle"
-                    />
+                      class="rounded-circle headphoto"
+                    /><p class="hideme">Sylvain</p>
                   </div>
                 </div>
               </div>
