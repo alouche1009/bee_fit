@@ -14,6 +14,7 @@ export class Infos extends Component {
     this.props.getUsersInfos();
   }
 
+
   render() {
     return (
       <Fragment>
@@ -45,7 +46,7 @@ export class Infos extends Component {
                   <td>{info.poids}</td>
                   <td>{info.objectif_poids}</td>
                   <td>{info.expected_calories}</td>
-                  <td>{info.allergies}</td>
+                  <td>{info.allergies.toString()}</td>
                   <td>{info.diabetique}</td>
                   <td>
                   </td>

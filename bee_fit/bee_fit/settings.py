@@ -86,9 +86,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'bee_fit'),
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'footfacts',
-        'USER': 'marco',
-        'PASSWORD': '123456789',
+        'NAME': 'bee_fit',
+        'USER': 'aurore',
+        'PASSWORD': '171090',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -119,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
