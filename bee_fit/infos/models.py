@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from multiselectfield import MultiSelectField
+from django.contrib.postgres.fields import ArrayField
 class Infos(models.Model):
     LACTOSE = 'LACTOSE'
     GLUTEN = 'GLUTEN'
@@ -45,10 +46,10 @@ class Infos(models.Model):
     objectif_poids = models.FloatField(
         validators=[MaxValueValidator(300), MinValueValidator(20)], default=0)
     expected_calories = models.IntegerField(default=2000)
-    allergies = MultiSelectField(
-        choices=ALLERGIES_CHOICES,
-        null=True,
-        blank=True
+    allergies = ArrayField(
+        models.CharField(max_length=32, blank=True, choices=ALLERGIES_CHOICES),
+        default=list,
+        blank=True,
     )
     diabetique = models.CharField(
         max_length=5,

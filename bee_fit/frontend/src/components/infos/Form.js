@@ -1,17 +1,67 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addUsersInfos } from '../../actions/infos';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated'
+
+const allergiesOptions = [
+  {
+    value: 'LACTOSE',
+    label: '🥛 Lactose'
+  },
+  {
+    value: 'GLUTEN',
+    label: '🌽 Gluten'
+  },
+  {
+    value: 'VEGETARIEN',
+    label: '🥗 Végétarien'
+  },
+  {
+    value: 'ARACHIDES',
+    label: '🌰 Arachides'
+  },
+  {
+    value: 'FRUITS_DE_MER',
+    label: '🦐 Fruits de mer'
+  },
+]
+
+const sexOptions = [
+  {
+    value: 'FEMME',
+    label: 'Femme'
+  },
+  {
+    value: 'HOMME',
+    label: 'Homme'
+  },
+  {
+    value: 'NON_BINAIRE',
+    label: 'Non binaire'
+  },
+]
+
+const diabetiqueOptions = [
+  {
+    value: 'OUI',
+    label: 'Oui'
+  },
+  {
+    value: 'NON',
+    label: 'Non'
+  },
+]
 export class Form extends Component {
- 
+
   state = {
     age: '',
     sexe: '',
     taille: '',
     poids: '',
     objectif_poids: '',
-    allergies: '',
+    allergies: [],
     diabetique: ''
   };
 
@@ -20,6 +70,12 @@ export class Form extends Component {
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+
+
+  handleChange = (e) => {
+    this.setState({ allergies: Array.isArray(e) ? e.map(x => x.value) : [] });
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -32,8 +88,8 @@ export class Form extends Component {
       taille: '',
       poids: '',
       objectif_poids: '',
-      allergies: '',
-      diabetique: '',      
+      allergies: [],
+      diabetique: '',
     });
   };
 
@@ -108,23 +164,16 @@ export class Form extends Component {
               />
             </div>
             <div className="md-form mt-5">
-              <label>Mes allergies</label>
-              <select
-                className="form-control"
+              <label>Mes allergies et régimes alimentaires</label>
+              <Select options={allergiesOptions}
+                value={allergiesOptions.filter(obj => allergies.includes(obj.value))}
                 name="allergies"
-                onChange={this.onChange}
-                value={allergies}
-                placeholder="Mes allergies"
-                style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
-              >
-                <option ></option>
-                <option value="LACTOSE">Lactose</option>
-                <option value="GLUTEN">Gluten</option>
-                <option value="VEGETALIEN">Végétalien</option>
-                <option value="VEGETARIEN">Végétarien</option>
-                <option value="ARACHIDES">Arachides</option>
-                <option value="FRUITS DE MER">Fruits de mer</option>
-              </select>
+                onChange={this.handleChange}
+                isMulti
+                isSearchable
+                components={makeAnimated()}
+                placeholder = ""
+              />
             </div>
             <div className="md-form mt-5">
               <label>Je suis diabétique</label>

@@ -17,14 +17,15 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('infos.urls')),
-    path('', include('accounts.urls'))
+    path('', include('accounts.urls')),
+    url('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
 
 if settings.DEBUG:

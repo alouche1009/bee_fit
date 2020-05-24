@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_rest_passwordreset',
     'rest_framework.authtoken',
     'infos',
     "frontend",
@@ -148,3 +149,5 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
 }
 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
