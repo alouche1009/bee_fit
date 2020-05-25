@@ -24,7 +24,7 @@ const allergiesOptions = [
   },
   {
     value: 'FRUITS_DE_MER',
-    label: '🦐 Fruits de mer'
+    label: '🦐 Fruits de mer et crustacés'
   },
 ]
 

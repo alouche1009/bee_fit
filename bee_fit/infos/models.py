@@ -6,10 +6,9 @@ from django.contrib.postgres.fields import ArrayField
 class Infos(models.Model):
     LACTOSE = 'LACTOSE'
     GLUTEN = 'GLUTEN'
-    VEGETALIEN = 'VEGETALIEN'
     VEGETARIEN = 'VEGETARIEN'
     ARACHIDES = 'ARACHIDES'
-    FRUITS_DE_MER = 'FRUITS DE MER'
+    FRUITS_DE_MER = 'FRUITS_DE_MER'
     FEMME = 'FEMME'
     HOMME = 'HOMME'
     NON_BINAIRE = 'NON BINAIRE'
@@ -27,7 +26,6 @@ class Infos(models.Model):
     ALLERGIES_CHOICES = [
         (LACTOSE, 'Lactose'),
         (GLUTEN, 'Gluten'),
-        (VEGETALIEN, 'Végétalien'),
         (VEGETARIEN, 'Végétarien'),
         (ARACHIDES, 'Arachides'),
         (FRUITS_DE_MER, 'Fruits de mer'),
