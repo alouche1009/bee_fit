@@ -11,7 +11,7 @@ class Infos(models.Model):
     FRUITS_DE_MER = 'FRUITS_DE_MER'
     FEMME = 'FEMME'
     HOMME = 'HOMME'
-    NON_BINAIRE = 'NON BINAIRE'
+    NON_BINAIRE = 'NON_BINAIRE'
     OUI = 'OUI'
     NON = 'NON'
     DIABETIQUE_CHOICES = [

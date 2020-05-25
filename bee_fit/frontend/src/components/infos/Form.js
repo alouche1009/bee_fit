@@ -31,26 +31,26 @@ const allergiesOptions = [
 const sexOptions = [
   {
     value: 'FEMME',
-    label: 'Femme'
+    label: '👩 Femme'
   },
   {
     value: 'HOMME',
-    label: 'Homme'
+    label: '👨 Homme'
   },
   {
     value: 'NON_BINAIRE',
-    label: 'Non binaire'
+    label: '🧑 Non binaire'
   },
 ]
 
 const diabetiqueOptions = [
   {
     value: 'OUI',
-    label: 'Oui'
+    label: '✅ Oui'
   },
   {
     value: 'NON',
-    label: 'Non'
+    label: '⭕ Non'
   },
 ]
 export class Form extends Component {
@@ -71,7 +71,13 @@ export class Form extends Component {
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+  handleChangeSex = e => {
+    this.setState({ sexe: e.value });
+  }
 
+  handleChangeDiabetique = e => {
+    this.setState({ diabetique: e.value });
+  }
 
   handleChange = (e) => {
     this.setState({ allergies: Array.isArray(e) ? e.map(x => x.value) : [] });
@@ -116,19 +122,10 @@ export class Form extends Component {
             </div>
             <div className="md-form mt-5">
               <label>Genre</label>
-              <select
-                className="form-control"
-                name="sexe"
-                onChange={this.onChange}
-                value={sexe}
-                placeholder="Genre"
-                style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
-              >
-                <option ></option>
-                <option value="FEMME">Femme</option>
-                <option value="HOMME">Homme</option>
-                <option value="NON BINAIRE">Non binaire</option>
-              </select>
+              <Select value={sexOptions.filter(obj => obj.value === sexe)}
+                options={sexOptions}
+                onChange={this.handleChangeSex}
+              />
             </div>
             <div className="md-form mt-5">
               <input
@@ -172,23 +169,15 @@ export class Form extends Component {
                 isMulti
                 isSearchable
                 components={makeAnimated()}
-                placeholder = ""
+                placeholder=""
               />
             </div>
             <div className="md-form mt-5">
               <label>Je suis diabétique</label>
-              <select
-                className="form-control"
-                name="diabetique"
-                onChange={this.onChange}
-                value={diabetique}
-                placeholder="Je suis diabétique"
-                style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
-              >
-                <option ></option>
-                <option value="OUI">Oui</option>
-                <option value="NON">Non</option>
-              </select>
+              <Select value={diabetiqueOptions.filter(obj => obj.value === diabetique)}
+                options={diabetiqueOptions}
+                onChange={this.handleChangeDiabetique}
+              />
             </div>
             <div className="md-form mt-5">
               <button onClick={this.onSubmit} style={{
