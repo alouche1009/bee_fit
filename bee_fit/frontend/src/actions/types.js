@@ -13,3 +13,8 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const CLEAR_INFOS = 'CLEAR_INFOS';
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const CHANGE_PASSWORD = "CHANGE_PASSWORD";
+export const USER_PROFILE = "USER_PROFILE";
+

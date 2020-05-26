@@ -1,55 +1,18 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import React, {Component} from "react";
+
 import Header from "./layout/Header";
-import Profil from "./infos/Profil";
-import Alerts from "./layout/Alerts";
-import { Provider } from "react-redux";
-import store from "../store";
-import { Provider as AlertProvider } from "react-alert";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
-import AlertTemplate from "react-alert-template-basic";
-import PrivateRoute from "./common/PrivateRoute"; // added
-import Home from "./layout/Home";
-import Login from "./accounts/login";
-import Register from "./accounts/register";
-import { loadUser } from '../actions/auth';
-import Footer from './layout/Footer';
+import Footer from "./layout/Footer";
 
-const alertOptions = {
-  timeout: 3000,
-  position: "top center",
-};
+import MainContent from "./MainContent";
 
-class App extends Component {
-  componentDidMount() {
-    store.dispatch(loadUser());
-  }
-  render() {
-    return (
-      <Provider store={store}>
-        <AlertProvider template={AlertTemplate} {...alertOptions}>
-          <Router>
-            <Fragment>
-              <Header />
-              <Alerts />
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />
-                  <PrivateRoute exact path="/profil" component={Profil} />
-                </Switch>
+export default class App extends Component {
+    render() {
+        return (
+            <div className="container">
+                <Header />
+                <MainContent />
                 <Footer />
-            </Fragment>
-          </Router>
-        </AlertProvider>
-      </Provider>
-    );
-  }
+            </div>
+        );
+    }
 }
-
-ReactDOM.render(<App />, document.getElementById("app"));

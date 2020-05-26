@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
+import { logoutUser } from "../../actions/authActions";
 
 export class Header extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired,
+    logoutUser: PropTypes.func.isRequired,
   };
 
   render() {
@@ -31,7 +31,7 @@ export class Header extends Component {
 
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
           <li className="nav-item">
-            <Link class="fas fa-user-times" onClick={this.props.logout}>
+            <Link class="fas fa-user-times" onClick={this.props.logoutUser}>
               Logout
             </Link>
           </li>
@@ -46,7 +46,7 @@ export class Header extends Component {
     const guestLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
         <li className="nav-item">
-          <Link to="/register" class="fas fa-user-plus">
+          <Link to="/signup" class="fas fa-user-plus">
             Register
           </Link>
         </li>
@@ -147,4 +147,4 @@ const mapStatetToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStatetToProps, { logout })(Header);
+export default connect(mapStatetToProps, { logoutUser })(Header);

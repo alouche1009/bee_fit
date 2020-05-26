@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('infos.urls')),
-    path('', include('accounts.urls')),
-    url('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('', include('user_profile.urls'))
 ]
 
 if settings.DEBUG:
