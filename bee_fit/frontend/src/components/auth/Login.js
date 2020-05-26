@@ -23,18 +23,18 @@ class Login extends Component {
                     className="col col-sm-4 card mt-5 p-2"
                     onSubmit={handleSubmit}
                 >
-                    <h4 className="text-md-center">Please Log In</h4>
+                    <h4 className="text-md-center">Log In</h4>
                     <hr/>
 
                     <fieldset className="form-group">
-                        <Field name="username" label="Username" component={renderField}
+                        <Field name="email" label="Email" component={renderField}
                                type="text" validate={[required({message: "This field is required."})]}
                         />
                     </fieldset>
 
 
                     <fieldset className="form-group">
-                        <Field name="password" label="Password" component={renderField}
+                        <Field name="password" label="Mot de passe" component={renderField}
                                type="password"  validate={[required({message: "This field is required."})]}
                         />
                     </fieldset>
@@ -44,8 +44,8 @@ class Login extends Component {
                         <button action="submit" className="btn btn-primary">Login</button>
                     </fieldset>
 
-                    <p>Not registered? <Link to="/signup">Signup Here!</Link></p>
-                    <Link to="/reset_password">forgot password?</Link>
+                    <p style={{textAlign: 'center'}}>Pas encore membre ? <Link to="/signup">Rejoignez-nous ici!</Link></p>
+                    <Link to="/reset_password" style={{textAlign: 'center'}}>Mot de passe oublié ?</Link>
                 </form>
             </div>
         )

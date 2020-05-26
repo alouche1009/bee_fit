@@ -194,7 +194,6 @@ export function updateUserProfile(formValues, dispatch, props) {
                 dismissAfter: 5000
             }));
 
-            history.push("/profile");
         }).catch((error) => {
             // If request is bad...
             // Show an error to the user

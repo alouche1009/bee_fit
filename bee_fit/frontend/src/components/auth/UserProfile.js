@@ -21,14 +21,16 @@ class UserProfile extends Component {
         if (user) {
             return (
                 <div className="mx-2">
-                    <h4>username: {user.username}</h4>
-                    <h4>First Name: {user.first_name}</h4>
-                    <h4>Last Name: {user.last_name}</h4>
-                    <h4>email: {user.email}</h4>
-                    <h4>Website: {user.website}</h4>
-                    <hr />
-                    <h4>About Myself:</h4>
-                    <p>{user.about}</p>
+                    <h4>Username: {user.username}</h4>
+                    <h4>Email: {user.email}</h4>
+                    <h4>Age: {user.age}</h4>
+                    <h4>Sexe : {user.sexe}</h4>
+                    <h4>Taille: {user.taille}</h4>
+                    <h4>Poids: {user.poids}</h4>
+                    <h4>Mon poids idéal: {user.objectif_poids}</h4>
+                    <h4>Mes calories conseillées: {user.expected_calories}</h4>
+                    <h4>Mes allergies: {user.allergies !== null ? user.allergies.join(', ') : user.allergies}</h4>
+                    <h4>Je suis diabétique: {user.diabetique}</h4>
 
                 </div>
             );
@@ -55,4 +57,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getUserProfile } )(UserProfile);
+export default connect(mapStateToProps, { getUserProfile })(UserProfile);
