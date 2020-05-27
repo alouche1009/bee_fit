@@ -19,6 +19,7 @@ import Login from "./accounts/login";
 import Register from "./accounts/register";
 import { loadUser } from '../actions/auth';
 import Footer from './layout/Footer';
+import Fitness from './layout/FitnessPage';
 
 const alertOptions = {
   timeout: 3000,
@@ -41,6 +42,7 @@ class App extends Component {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  <Route exact path="/fitness" component={Fitness} />
                   <PrivateRoute exact path="/profil" component={Profil} />
                 </Switch>
                 <Footer />

@@ -20,7 +20,7 @@ export class Footer extends Component {
 					<p>
 						<a class="btn" href="#">View details »</a>
 					</p> 
-					<button type="button" class="btn btn-lg btn-block active btn-outline-warning">
+					<button type="button" class="btn btn-lg btn-block active  btn-primary">
 						Button
 					</button>
 				</div>
@@ -52,7 +52,8 @@ export class Footer extends Component {
 						</li>
 					</ul>
 				</div>
-				<div class="col-md-4">
+
+				<div class="col-md-4"><div class="col-md-8">
 					<div class="row icons text-center">
 						<div class="col-md-3">
                         <a href="google.com" class="fab fa-facebook-f"></a>
@@ -65,6 +66,7 @@ export class Footer extends Component {
 						</div>
 						<div class="col-md-3">
                         <a class="fab fa-linkedin-in"></a>
+						</div>
 						</div>
 					</div>
 					<ul>

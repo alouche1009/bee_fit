@@ -202,7 +202,6 @@
   
   header {
     height: 450px;
-    background-color: orange;
     background-image: url(./images/bg1-d.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -220,17 +219,37 @@
   }
 
   #footer .icons a {
-    color: red;
-    font-size: 63px;
-    line-height: 63px;
+    color: rgb(92, 93, 97);
+    font-size: 27px;
+    line-height: 27px;
+    background-color: #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    height: 50px;
+    border-radius: 50px;
+    width: 50px;
+    left: 0;
 }
+
+.icons .col-md-3 {
+
+}
+
 #footer .icons a:hover {
-    color: blue;
-    text-decoration:none;
+  color: rgb(255, 255, 255);
+  background-color: #6AC6B9;
+  text-decoration: none;
+  transition: 1s;
 }
 
 #footer {
-        background-color: #dad9d9;
+        background-color: #e6e6e6;;
+}
+
+.onhover {
+        cursor: pointer;
 }
   
   /***** Responsive *****/
@@ -263,4 +282,5 @@
       align-items: flex-end;
       justify-content: flex-end;
     }
+
   }
