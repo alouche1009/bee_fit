@@ -151,7 +151,7 @@ export function activateUserAccount(formValues, dispatch, props) {
 
 export function updateUserProfile(formValues, dispatch, props) {
     const token = getUserToken(store.getState());
-
+    return dispatch => {
     return axios.patch(AuthUrls.USER_PROFILE, formValues, {
         headers: {
             authorization: 'Token ' + token
@@ -168,6 +168,7 @@ export function updateUserProfile(formValues, dispatch, props) {
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
+    }
 }
 
 function processServerError(error) {
