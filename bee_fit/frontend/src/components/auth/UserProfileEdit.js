@@ -201,9 +201,9 @@ export class Login extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        initialValues: state.auth.user
-    }
+  return {
+    initialValues: state.auth.user
+  }
 }
 
 export default connect(mapStateToProps, { updateUserProfile })(Login);

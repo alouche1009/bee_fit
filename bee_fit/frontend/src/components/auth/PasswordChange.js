@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
 import { reduxForm, Field, propTypes } from "redux-form";
 import { required } from "redux-form-validators"
 import { changePassword } from "../../actions/authActions";
@@ -21,23 +20,23 @@ class PasswordChange extends Component {
                     onSubmit={handleSubmit}
                 >
                     <h4 className="text-md-center">Modifier mon mot de passe</h4>
-                    <hr/>
+                    <hr />
 
                     <fieldset className="form-group">
                         <Field name="old_password" label="Ancien mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="new_password1" label="Nouveau mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="new_password2" label="Confirmer le mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
@@ -51,7 +50,6 @@ class PasswordChange extends Component {
     }
 }
 
-// Sync field level validation for password match
 const validateForm = values => {
     const errors = {};
     const { new_password1, new_password2 } = values;

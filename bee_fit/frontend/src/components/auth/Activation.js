@@ -3,7 +3,7 @@ import { reduxForm, propTypes } from "redux-form";
 import { activateUserAccount } from "../../actions/authActions";
 import { renderError } from "../../utils/renderUtils";
 
-class AccountActivation extends Component {
+class Activation extends Component {
 
     static propTypes = {
         ...propTypes
@@ -19,8 +19,7 @@ class AccountActivation extends Component {
                     onSubmit={handleSubmit}
                 >
                     <h4 className="text-md-center">Merci de cliquer sur le lien ci-dessous pour activer votre compte.</h4>
-                    <hr/>
-
+                    <hr />
                     <fieldset className="form-group">
                         {renderError(error)}
                         <button action="submit" className="btn btn-primary">Activer</button>
@@ -34,4 +33,4 @@ class AccountActivation extends Component {
 export default reduxForm({
     form: "user_account_activation",
     onSubmit: activateUserAccount,
-})(AccountActivation);
+})(Activation);

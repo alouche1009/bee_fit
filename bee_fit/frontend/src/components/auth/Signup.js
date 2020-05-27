@@ -22,44 +22,43 @@ class Signup extends Component {
                     onSubmit={handleSubmit}
                 >
                     <h4 className="text-md-center">Sign Up</h4>
-                    <hr/>
+                    <hr />
 
                     <fieldset className="form-group">
                         <Field name="email" label="Email" component={renderField}
-                               type="text"/>
+                            type="text" />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="username" label="Username" component={renderField}
-                               type="text" validate={[required({message: "Ce champ est requis."})]}
+                            type="text" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="password1" label="Mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="password2" label="Confirmer le mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
-                    { renderError(error) }
+                    {renderError(error)}
 
                     <fieldset className="form-group">
                         <button action="submit" className="btn btn-primary">Sign Up</button>
                     </fieldset>
-                    <p style={{textAlign: 'center'}}>Déjà membre ? <Link to="/login">Login</Link></p>
+                    <p style={{ textAlign: 'center' }}>Déjà membre ? <Link to="/login">Login</Link></p>
                 </form>
             </div>
         );
     }
 }
 
-// Sync field level validation for password match
 const validateForm = values => {
     const errors = {};
     const { password1, password2 } = values;

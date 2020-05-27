@@ -20,17 +20,17 @@ class PasswordResetConfirm extends Component {
                     onSubmit={handleSubmit}
                 >
                     <h4 className="text-md-center">Créer un nouveau mot de passe</h4>
-                    <hr/>
+                    <hr />
 
                     <fieldset className="form-group">
                         <Field name="new_password1" label="Nouveau mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         <Field name="new_password2" label="Nouveau mot de passe" component={renderField}
-                               type="password" validate={[required({message: "Ce champ est requis."})]}
+                            type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
 
@@ -44,7 +44,6 @@ class PasswordResetConfirm extends Component {
     }
 }
 
-// Sync field level validation for password match
 const validateForm = values => {
     const errors = {};
     const { new_password1, new_password2 } = values;
