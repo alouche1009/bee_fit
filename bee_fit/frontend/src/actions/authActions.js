@@ -2,12 +2,12 @@ import axios from "axios";
 import { SubmissionError } from 'redux-form';
 import history from "../utils/historyUtils";
 import { actions as notifActions } from 'redux-notifications';
-const { notifSend } = notifActions;
-
 import { AuthTypes } from "../constants/actionsTypes";
 import { AuthUrls } from "../constants/urls";
 import store from "../store";
 import { getUserToken } from "../utils/authUtils";
+
+const { notifSend } = notifActions;
 
 export function authLogin(token) {
     return {
@@ -17,22 +17,17 @@ export function authLogin(token) {
 }
 
 export function loginUser(formValues, dispatch, props) {
-        const loginUrl = AuthUrls.LOGIN;
+    const loginUrl = AuthUrls.LOGIN;
 
-        return axios.post(loginUrl, formValues).then((response) => {
-            // If request is good...
-            // Update state to indicate user is authenticated
-            const token = response.data.key;
-            dispatch(authLogin(token));
-
-            localStorage.setItem("token", token);
-
-            // redirect to the route '/'
-            history.push("/");
-        }).catch(error => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
-        });
+    return axios.post(loginUrl, formValues).then((response) => {
+        const token = response.data.key;
+        dispatch(authLogin(token));
+        localStorage.setItem("token", token);
+        history.push("/");
+    }).catch(error => {
+        const processedError = processServerError(error.response.data);
+        throw new SubmissionError(processedError);
+    });
 }
 
 export function logoutUser() {
@@ -47,19 +42,9 @@ export function signupUser(formValues, dispatch, props) {
 
     return axios.post(signupUrl, formValues)
         .then((response) => {
-            // If request is good...
-            // you can login if email verification is turned off.
-            // const token = response.data.key;
-            // dispatch(authLogin(token));
-            // localStorage.setItem("token", token);
-
-            // email need to be verified, so don't login and send user to signup_done page.
-            // redirect to signup done page.
             history.push("/signup_done");
         })
         .catch((error) => {
-            // If request is bad...
-            // Show an error to the user
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
@@ -73,7 +58,7 @@ function setUserProfile(payload) {
 }
 
 export function getUserProfile() {
-    return function(dispatch) {
+    return function (dispatch) {
         const token = getUserToken(store.getState());
         if (token) {
             axios.get(AuthUrls.USER_PROFILE, {
@@ -83,10 +68,7 @@ export function getUserProfile() {
             }).then(response => {
                 dispatch(setUserProfile(response.data))
             }).catch((error) => {
-                // If request is bad...
-                // Show an error to the user
                 console.log(error);
-                // TODO: send notification and redirect
             });
         }
     };
@@ -104,16 +86,13 @@ export function changePassword(formValues, dispatch, props) {
         })
             .then((response) => {
                 dispatch(notifSend({
-                    message: "Password has been changed successfully",
+                    message: "Votre mot de passe a bien été modifié",
                     kind: "info",
                     dismissAfter: 5000
                 }));
-                // redirect to the route '/profile'
                 history.push("/profile");
             })
             .catch((error) => {
-                // If request is bad...
-                // Show an error to the user
                 const processedError = processServerError(error.response.data);
                 throw new SubmissionError(processedError);
             });
@@ -125,11 +104,8 @@ export function resetPassword(formValues, dispatch, props) {
 
     return axios.post(resetPasswordUrl, formValues)
         .then(response => {
-            // redirect to reset done page
             history.push("/reset_password_done");
         }).catch((error) => {
-            // If request is bad...
-            // Show an error to the user
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
@@ -143,15 +119,12 @@ export function confirmPasswordChange(formValues, dispatch, props) {
     return axios.post(resetPasswordConfirmUrl, data)
         .then(response => {
             dispatch(notifSend({
-                message: "Password has been reset successfully, please log in",
+                message: "Votre mot de passe a bien été modifié",
                 kind: "info",
                 dismissAfter: 5000
             }));
-
             history.push("/login");
         }).catch((error) => {
-            // If request is bad...
-            // Show an error to the user
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
@@ -165,15 +138,12 @@ export function activateUserAccount(formValues, dispatch, props) {
     return axios.post(activateUserUrl, data)
         .then(response => {
             dispatch(notifSend({
-                message: "Your account has been activated successfully, please log in",
+                message: "Votre compte a bien été activé",
                 kind: "info",
                 dismissAfter: 5000
             }));
-
             history.push("/login");
         }).catch((error) => {
-            // If request is bad...
-            // Show an error to the user
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
@@ -189,43 +159,39 @@ export function updateUserProfile(formValues, dispatch, props) {
     })
         .then(response => {
             dispatch(notifSend({
-                message: "Your profile has been updated successfully",
+                message: "Votre profil a bien été mis à jour",
                 kind: "info",
                 dismissAfter: 5000
             }));
-
+            history.push("/profile");
         }).catch((error) => {
-            // If request is bad...
-            // Show an error to the user
             const processedError = processServerError(error.response.data);
             throw new SubmissionError(processedError);
         });
 }
-// util functions
+
 function processServerError(error) {
-    return  Object.keys(error).reduce(function(newDict, key) {
+    return Object.keys(error).reduce(function (newDict, key) {
         if (key === "non_field_errors") {
             newDict["_error"].push(error[key]);
         } else if (key === "token") {
-            // token sent with request is invalid
-            newDict["_error"].push("The link is not valid any more.");
+            newDict["_error"].push("Le lien n'est pas plus valide, merci de soumettre une nouvelle demande");
         } else {
             newDict[key] = error[key];
         }
-
         return newDict
-    }, {"_error": []});
+    }, { "_error": [] });
 }
 
 export const tokenConfig = () => {
-  const token = getUserToken(store.getState());
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  if (token) {
-    config.headers['Authorization'] = `Token ${token}`;
-  }
-  return config;
+    const token = getUserToken(store.getState());
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+    if (token) {
+        config.headers['Authorization'] = `Token ${token}`;
+    }
+    return config;
 };

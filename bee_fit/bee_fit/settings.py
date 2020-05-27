@@ -147,15 +147,9 @@ STATICFILES_DIRS = (
 
 SITE_ID = 1
 
-## User Authentication Settings
-
 ACCOUNT_ADAPTER = 'user_profile.adapter.MyAccountAdapter'
-# Following is added to enable registration with email instead of username
 AUTHENTICATION_BACKENDS = (
- # Needed to login by username in Django admin, regardless of `allauth`
  "django.contrib.auth.backends.ModelBackend",
-
- # `allauth` specific authentication methods, such as login by e-mail
  "allauth.account.auth_backends.AuthenticationBackend",
 )
 
@@ -170,8 +164,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 ACCOUNT_USERNAME_REQUIRED = True
 LOGOUT_ON_PASSWORD_CHANGE = False
-
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -189,7 +181,6 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-
 )
 
 CORS_ORIGIN_REGEX_WHITELIST = (
@@ -198,7 +189,6 @@ CORS_ORIGIN_REGEX_WHITELIST = (
 )
 
 
-# Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/emails'
 DEFAULT_FROM_EMAIL = 'admin@bee_fit.com'
