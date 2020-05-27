@@ -44,8 +44,8 @@ class UserProfile extends Component {
                 {this.renderUser()}
                 {" "}
                 <hr />
-                <Link className="btn btn-primary mr-2" to="/profile_edit">Update Profile</Link>
-                <Link className="btn btn-primary" to="/change_password">Change Password</Link>
+                <Link className="btn btn-primary mr-2" to="/profile_edit">Modifier mon profil</Link>
+                <Link className="btn btn-primary" to="/change_password">Modifier mon mot de passe</Link>
             </div>
         );
     }

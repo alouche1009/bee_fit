@@ -126,9 +126,7 @@ export class Header extends Component {
                     Recettes
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
-                    Programme fitness
-                  </a>
+                  <Link to="/fitness" class="dropdown-item"> Programme fitness</Link>
                   <div class="dropdown-divider"></div>
                 </div>
               </li>

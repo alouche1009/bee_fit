@@ -20,30 +20,30 @@ class PasswordChange extends Component {
                     className="col col-sm-4 card mt-5 p-2"
                     onSubmit={handleSubmit}
                 >
-                    <h4 className="text-md-center">Change Password</h4>
+                    <h4 className="text-md-center">Modifier mon mot de passe</h4>
                     <hr/>
 
                     <fieldset className="form-group">
-                        <Field name="old_password" label="Old Password" component={renderField}
-                               type="password" validate={[required({message: "This field is required."})]}
+                        <Field name="old_password" label="Ancien mot de passe" component={renderField}
+                               type="password" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
-                        <Field name="new_password1" label="New Password" component={renderField}
-                               type="password" validate={[required({message: "This field is required."})]}
+                        <Field name="new_password1" label="Nouveau mot de passe" component={renderField}
+                               type="password" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
-                        <Field name="new_password2" label="Confirm New Password" component={renderField}
-                               type="password" validate={[required({message: "This field is required."})]}
+                        <Field name="new_password2" label="Confirmer le mot de passe" component={renderField}
+                               type="password" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
                         {renderError(error)}
-                        <button action="submit" className="btn btn-primary">Submit</button>
+                        <button action="submit" className="btn btn-primary">Modifier</button>
                     </fieldset>
                 </form>
             </div>

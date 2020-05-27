@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { reduxForm, Field, propTypes } from "redux-form";
 import { required } from "redux-form-validators"
 import { renderField, renderError } from "../../utils/renderUtils";
@@ -31,19 +31,19 @@ class Signup extends Component {
 
                     <fieldset className="form-group">
                         <Field name="username" label="Username" component={renderField}
-                               type="text" validate={[required({message: "This field is required."})]}
+                               type="text" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
-                        <Field name="password1" label="Password" component={renderField}
-                               type="password" validate={[required({message: "This field is required."})]}
+                        <Field name="password1" label="Mot de passe" component={renderField}
+                               type="password" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
                     <fieldset className="form-group">
-                        <Field name="password2" label="Confirm Password" component={renderField}
-                               type="password" validate={[required({message: "This field is required."})]}
+                        <Field name="password2" label="Confirmer le mot de passe" component={renderField}
+                               type="password" validate={[required({message: "Ce champ est requis."})]}
                         />
                     </fieldset>
 
@@ -52,6 +52,7 @@ class Signup extends Component {
                     <fieldset className="form-group">
                         <button action="submit" className="btn btn-primary">Sign Up</button>
                     </fieldset>
+                    <p style={{textAlign: 'center'}}>Déjà membre ? <Link to="/login">Login</Link></p>
                 </form>
             </div>
         );

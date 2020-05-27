@@ -15,7 +15,7 @@ class Logout extends Component {
 
     render() {
         return (
-            <h2>Sorry to see you go...</h2>
+            <h2>A très vite sur Bee-Fit!</h2>
         );
     }
 }
