@@ -25,9 +25,11 @@ export class Alerts extends Component {
     }
 
     if (message !== prevProps.message) {
-      if (message.deleteUsersInfos) alert.success(message.deleteUsersInfos);
-      if (message.addUsersInfos) alert.success(message.addUsersInfos);
-      if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
+      if (message.changePassword) alert.success(message.changePassword);
+      if (message.resetPassword) alert.success(message.resetPassword);
+      if (message.confirmPasswordChange) alert.success(message.confirmPasswordChange);
+      if (message.activateUserAccount) alert.success(message.activateUserAccount);
+      if (message.updateUserProfile) alert.success(message.updateUserProfile);
     }
   }
 

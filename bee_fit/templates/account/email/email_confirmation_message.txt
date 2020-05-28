@@ -1,0 +1,10 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello from {{ site_name }}!
+
+Vous recevez cet email car l'utilisateur {{ user_display }} a fourni votre adresse pour s'enregistrer sur le site Bee-Fit.
+
+Si vous êtes à l'origine de cette demande, merci de cliquer sur ce lien pour activer votre compte : {{ activate_url }} .
+
+Si vous n'êtes pas à l'origine de cette demande, vous pouvez ignorer cet email (ou nous rejoindre quand même).
+{% endblocktrans %}{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %} Merci de rejoindre l'aventure Bee-Fit!
+{{ site_domain }}{% endblocktrans %}

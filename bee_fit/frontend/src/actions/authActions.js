@@ -1,13 +1,11 @@
 import axios from "axios";
-import { SubmissionError } from 'redux-form';
 import history from "../utils/historyUtils";
-import { actions as notifActions } from 'redux-notifications';
+import { SubmissionError } from 'redux-form';
 import { AuthTypes } from "../constants/actionsTypes";
 import { AuthUrls } from "../constants/urls";
 import store from "../store";
 import { getUserToken } from "../utils/authUtils";
-
-const { notifSend } = notifActions;
+import { createMessage, returnErrors } from './messages';
 
 export function authLogin(token) {
     return {
@@ -24,10 +22,9 @@ export function loginUser(formValues, dispatch, props) {
         dispatch(authLogin(token));
         localStorage.setItem("token", token);
         history.push("/");
-    }).catch(error => {
-        const processedError = processServerError(error.response.data);
-        throw new SubmissionError(processedError);
-    });
+    }) .catch((err) => {
+        dispatch(returnErrors(err.response.data, err.response.status));
+      });
 }
 
 export function logoutUser() {
@@ -44,9 +41,8 @@ export function signupUser(formValues, dispatch, props) {
         .then((response) => {
             history.push("/signup_done");
         })
-        .catch((error) => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
@@ -67,8 +63,8 @@ export function getUserProfile() {
                 }
             }).then(response => {
                 dispatch(setUserProfile(response.data))
-            }).catch((error) => {
-                console.log(error);
+            }).catch((err) => {
+                dispatch(returnErrors(err.response.data, err.response.status));
             });
         }
     };
@@ -84,17 +80,12 @@ export function changePassword(formValues, dispatch, props) {
                 authorization: 'Token ' + token
             }
         })
-            .then((response) => {
-                dispatch(notifSend({
-                    message: "Votre mot de passe a bien été modifié",
-                    kind: "info",
-                    dismissAfter: 5000
-                }));
+            .then((res) => {
+                dispatch(createMessage({ changePassword: 'Votre mot de passe a bien été modifié' }));
                 history.push("/profile");
             })
-            .catch((error) => {
-                const processedError = processServerError(error.response.data);
-                throw new SubmissionError(processedError);
+            .catch((err) => {
+                dispatch(returnErrors(err.response.data, err.response.status));
             });
     }
 }
@@ -103,11 +94,11 @@ export function resetPassword(formValues, dispatch, props) {
     const resetPasswordUrl = AuthUrls.RESET_PASSWORD;
 
     return axios.post(resetPasswordUrl, formValues)
-        .then(response => {
+        .then(res => {
+            dispatch(createMessage({ resetPassword: 'Un email vous a été envoyé pour modifier votre mot de passe' }));
             history.push("/reset_password_done");
-        }).catch((error) => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
+        }).catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
@@ -117,16 +108,11 @@ export function confirmPasswordChange(formValues, dispatch, props) {
     const data = Object.assign(formValues, { uid, token });
 
     return axios.post(resetPasswordConfirmUrl, data)
-        .then(response => {
-            dispatch(notifSend({
-                message: "Votre mot de passe a bien été modifié",
-                kind: "info",
-                dismissAfter: 5000
-            }));
+        .then(res => {
+            dispatch(createMessage({ confirmPasswordChange: 'Votre mot de passe a bien été modifié' }));
             history.push("/login");
-        }).catch((error) => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
+        }).catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
@@ -136,16 +122,11 @@ export function activateUserAccount(formValues, dispatch, props) {
     const data = Object.assign(formValues, { key });
 
     return axios.post(activateUserUrl, data)
-        .then(response => {
-            dispatch(notifSend({
-                message: "Votre compte a bien été activé",
-                kind: "info",
-                dismissAfter: 5000
-            }));
+        .then(res => {
+            dispatch(createMessage({ activateUserAccount: 'Votre compte est bien activé! Veuillez vous connecter' }));
             history.push("/login");
-        }).catch((error) => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
+        }).catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
@@ -158,30 +139,25 @@ export function updateUserProfile(formValues, dispatch, props) {
         }
     })
         .then(response => {
-            dispatch(notifSend({
-                message: "Votre profil a bien été mis à jour",
-                kind: "info",
-                dismissAfter: 5000
-            }));
+            dispatch(createMessage({ updateUserProfile: 'Vos informations ont bien été enregistrées' }));
             history.push("/profile");
-        }).catch((error) => {
-            const processedError = processServerError(error.response.data);
-            throw new SubmissionError(processedError);
+        }).catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
         });
     }
 }
 
-function processServerError(error) {
-    return Object.keys(error).reduce(function (newDict, key) {
-        if (key === "non_field_errors") {
-            newDict["_error"].push(error[key]);
+function processServerError(err) {
+        return Object.keys(err).reduce(function (newDict, key) {
+        if (key === "non_field_errs") {
+            newDict["_err"].push(err[key]);
         } else if (key === "token") {
-            newDict["_error"].push("Le lien n'est pas plus valide, merci de soumettre une nouvelle demande");
+            newDict["_err"].push("Le lien n'est pas plus valide, merci de soumettre une nouvelle demande");
         } else {
-            newDict[key] = error[key];
+            newDict[key] = err[key];
         }
         return newDict
-    }, { "_error": [] });
+    }, { "_err": [] });
 }
 
 export const tokenConfig = () => {
