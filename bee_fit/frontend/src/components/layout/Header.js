@@ -2,65 +2,57 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getUserProfile } from "../../actions/authActions"
-
+import { getUserProfile } from "../../actions/authActions";
 
 export class Header extends Component {
   static propTypes = {
     authenticated: PropTypes.bool,
     getUserProfile: PropTypes.func.isRequired,
-    user: PropTypes.object
-
+    user: PropTypes.object,
   };
 
   componentWillMount() {
     this.props.getUserProfile();
-}
-
+  }
 
   renderLinks() {
     const user = this.props.user;
     if (this.props.authenticated) {
-      return (
-        [
-          <div class="logged">
-            <div class="text-center">
-              <p class="text-center">
-              </p>
-            </div>
-
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li className="nav-item">
-              <Link className="fas fa-user-times" to="/logout">Logout</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/profile" class="fas fa-user-times">
-                  Profil
-              </Link>
-              </li>
-            </ul>
+      return [
+        <div class="logged">
+          <div class="text-center">
+            <p class="text-center"></p>
           </div>
 
-        ]
-      );
-
-    } else {
-      return (
-        [
           <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
             <li className="nav-item">
-              <Link to="/signup" class="fas fa-user-plus">
-                Register
-            </Link>
+              <Link className="fas fa-user-times" to="/logout">
+                Logout
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" class="fas fa-user-check">
-                Login
-            </Link>
+              <Link to="/profile" class="fas fa-user-times">
+                Profil
+              </Link>
             </li>
           </ul>
-        ]
-      );
+        </div>,
+      ];
+    } else {
+      return [
+        <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li className="nav-item">
+            <Link to="/signup" class="fas fa-user-plus">
+              Register
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/login" class="fas fa-user-check">
+              Login
+            </Link>
+          </li>
+        </ul>,
+      ];
     }
   }
   render() {
@@ -72,7 +64,7 @@ export class Header extends Component {
           </Link>
         </div>
         <div class="container-fluid d-flex justify-content-end menu-login">
-        {this.renderLinks()}
+          {this.renderLinks()}
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
@@ -126,7 +118,10 @@ export class Header extends Component {
                     Recettes
                   </a>
                   <div class="dropdown-divider"></div>
-                  <Link to="/fitness" class="dropdown-item"> Programme fitness</Link>
+                  <Link to="/fitness" class="dropdown-item">
+                    {" "}
+                    Programme fitness
+                  </Link>
                   <div class="dropdown-divider"></div>
                 </div>
               </li>
@@ -150,7 +145,7 @@ export class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
-  }
+    authenticated: state.auth.authenticated,
+  };
 }
 export default connect(mapStateToProps, { getUserProfile })(Header);

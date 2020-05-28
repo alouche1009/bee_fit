@@ -23,6 +23,10 @@ print (BASE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '@l=4u5l3l^!0^@o%2=d=aqcmmnfwja6!m&g)veq@w2tfs39z-#'
 
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = 'secret!'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='secret!' #app key
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -47,9 +51,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
     "frontend",
     'multiselectfield' ,
     "user_profile",
+
 ]
 
 MIDDLEWARE = [
@@ -77,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -94,8 +101,8 @@ DATABASES = {
         #'NAME': os.path.join(BASE_DIR, 'bee_fit'),
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bee_fit',
-        'USER': 'aurore',
-        'PASSWORD': '171090',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -145,13 +152,37 @@ STATICFILES_DIRS = (
 )
 
 
-SITE_ID = 1
+SITE_ID = 2
 
 ACCOUNT_ADAPTER = 'user_profile.adapter.MyAccountAdapter'
 AUTHENTICATION_BACKENDS = (
  "django.contrib.auth.backends.ModelBackend",
  "allauth.account.auth_backends.AuthenticationBackend",
 )
+
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email','public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'kr_KR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}}
+
+
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'user_profile.serializers.UserSerializer'

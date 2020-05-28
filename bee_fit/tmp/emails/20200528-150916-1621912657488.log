@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: [localhost:8000] Confirmez votre adresse e-mail
+From: admin@bee_fit.com
+To: sylvainfacebook@gmail.com
+Date: Thu, 28 May 2020 13:09:16 -0000
+Message-ID: <159067135689.18728.5203111547991677779@LAPTOP-OD81HJ1B>
+
+Hello from localhost:8000!
+
+Vous recevez cet email car l'utilisateur sylvainfacebook a fourni votre adresse pour s'enregistrer sur le site Bee-Fit.
+
+Si vous êtes à l'origine de cette demande, merci de cliquer sur ce lien pour activer votre compte : localhost:8000/account/confirm-email/Mg:1jeIHc:nSelaMIgf15KkeXsCoWObsYiJbQ/ .
+
+Si vous n'êtes pas à l'origine de cette demande, vous pouvez ignorer cet email (ou nous rejoindre quand même).
+
+ Merci de rejoindre l'aventure Bee-Fit!
+localhost:8000
+-------------------------------------------------------------------------------
