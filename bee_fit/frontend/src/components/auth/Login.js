@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { required } from "redux-form-validators";
 import { renderField, renderError } from "../../utils/renderUtils";
 import { loginUser } from "../../actions/authActions";
-import SocialAuth from "../../components/layout/socialauth";
 
 class Login extends Component {
   static propTypes = {
@@ -53,11 +52,6 @@ class Login extends Component {
           <Link to="/reset_password" style={{ textAlign: "center" }}>
             Mot de passe oublié ?
           </Link>
-  <script>
-  {% load socialaccount %}
-  {% providers_media_js %}<p>toto</p>
-  <a href="{% provider_login_url "facebook" method="js_sdk" %}">Login Button image</a>
-</script>
         </form>
       </div>
     );

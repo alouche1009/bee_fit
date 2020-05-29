@@ -11,19 +11,18 @@
   <title>Bee-fit</title>
 </head>
 <body>
-<div >
- 
-  {% load socialaccount %}
-  {% providers_media_js %}<p>toto</p>
-  <a href="{% provider_login_url "facebook" method="js_sdk" %}">Login Button image</a>
-  
-</div>
 
 
 
 
 
+  <div >
+    {% load socialaccount %}
+    {% providers_media_js %}
+    <a href="{% provider_login_url "facebook" method="js_sdk" %}">Login Button image</a>
+  </div>
   <div id="app">
+  
     {% load static %}
     
   </div>
