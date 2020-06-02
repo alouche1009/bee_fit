@@ -117,17 +117,21 @@ export function confirmPasswordChange(formValues, dispatch, props) {
 }
 
 export function activateUserAccount(formValues, dispatch, props) {
+
     const { key } = props.match.params;
     const activateUserUrl = AuthUrls.USER_ACTIVATION;
     const data = Object.assign(formValues, { key });
+    return dispatch => {
+
 
     return axios.post(activateUserUrl, data)
         .then(res => {
             dispatch(createMessage({ activateUserAccount: 'Votre compte est bien activé! Veuillez vous connecter' }));
-            history.push("/login");
+            history.push("/");
         }).catch((err) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
+}
 }
 
 export function updateUserProfile(formValues, dispatch, props) {

@@ -9,3 +9,7 @@ export const AuthUrls = {
     USER_ACTIVATION: `${ROOT_URL}rest-auth/registration/verify-email/`,
     USER_PROFILE: `${ROOT_URL}rest-auth/user/`
 };
+
+export const CalUrls = {
+    GET_PRODUCTS: `${ROOT_URL}search/`,
+}

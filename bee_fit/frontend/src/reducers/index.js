@@ -5,6 +5,7 @@ import { reducer as notifReducer } from 'redux-notifications';
 import errors from './errors';
 import messages from './messages'
 import auth from './auth'; 
+import cal from "./cal";
 
 const rootReducer = combineReducers({
     form: formReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     auth,
     errors,
     messages,
+    cal,
 });
 
 export default rootReducer;

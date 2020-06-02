@@ -13,6 +13,7 @@ import PasswordChange from "./auth/PasswordChange";
 import PasswordReset from "./auth/PasswordReset";
 import PasswordResetDone from "./auth/PasswordResetDone";
 import PasswordResetConfirm from "./auth/PasswordResetConfirm";
+import Search from "./Products/Search"
 import Fitness from "./layout/FitnessPage";
 
 const MainContent = () => (
@@ -30,7 +31,8 @@ const MainContent = () => (
       <Route path="/profile" component={RequireAuth(UserProfile)} />
       <Route path="/profile_edit" component={RequireAuth(UserProfileEdit)} />
       <Route path="/change_password" component={RequireAuth(PasswordChange)} />
-      <Route exact path="/fitness" component={Fitness} />
+      <Route path="/fitness" component={Fitness} />
+      <Route path="/allproducts" component ={Search} />
     </Switch>
   </div>
 );

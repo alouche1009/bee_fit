@@ -1,0 +1,27 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?R=C3=A9initialisation_du_mot_de_passe_sur_https=3A//localhost=3A80?=
+ =?utf-8?q?00?=
+From: admin@bee_fit.com
+To: test@gmail.com
+Date: Mon, 01 Jun 2020 15:23:00 -0000
+Message-ID: <159102498074.5641.6403577713443472221@DESKTOP-UPMQAJM>
+
+
+Vous recevez ce message en réponse à votre demande de réinitialisation du mot de passe de votre compte sur https://localhost:8000.
+
+Veuillez vous rendre sur cette page et choisir un nouveau mot de passe :
+
+http://https://localhost:8000/reset/MTU/5gz-12ae2d074250251e88b2/
+
+Votre nom d’utilisateur, en cas d’oubli : test
+
+Merci d’utiliser notre site !
+
+L’équipe https://localhost:8000
+
+
+
+-------------------------------------------------------------------------------

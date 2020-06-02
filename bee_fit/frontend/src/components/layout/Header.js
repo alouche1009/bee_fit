@@ -110,9 +110,10 @@ export class Header extends Component {
                     Aide nutritive
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
+                  <Link to="/allproducts" class="dropdown-item">
+                    {" "}
                     Recherche d'aliments
-                  </a>
+                  </Link>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">
                     Recettes

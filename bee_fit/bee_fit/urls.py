@@ -25,9 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('user_profile.urls')),
-    url(r'^accounts/',include('allauth.urls')),
-   # path('accounts/', include('allauth.urls')),
-    path('',TemplateView.as_view(template_name='/templates/frontend/index.html')),
+    path('', include('calories.urls'))
     
 ]
 
