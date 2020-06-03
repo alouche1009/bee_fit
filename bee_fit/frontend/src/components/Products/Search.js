@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios"
-import { getProducts } from "../../actions/productsActions"
+import axios from "axios";
+import { getProducts } from "../../actions/productsActions";
 
-const findProducts = product_name => {
-  return axios.get(`http://127.0.0.1:8000/api/products/?search=${product_name}`)
+const findProducts = (product_name) => {
+  return axios.get(
+    `http://127.0.0.1:8000/products/?search=${product_name}`
+  );
 };
 
 export default class Search extends Component {
@@ -16,7 +18,7 @@ export default class Search extends Component {
 
     this.state = {
       products: [],
-      searchProduct: ""
+      searchProduct: "",
     };
   }
 
@@ -28,32 +30,32 @@ export default class Search extends Component {
     const searchProduct = e.target.value;
 
     this.setState({
-      searchProduct: searchProduct
+      searchProduct: searchProduct,
     });
   }
 
   retrieveProducts() {
     getProducts()
-      .then(response => {
+      .then((response) => {
         this.setState({
-          products: response.data
+          products: response.data,
         });
         console.log(response.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   }
 
   searchProduct() {
     findProducts(this.state.searchProduct)
-      .then(response => {
+      .then((response) => {
         this.setState({
-          products: response.data
+          products: response.data,
         });
         console.log(response.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   }
@@ -62,44 +64,52 @@ export default class Search extends Component {
     const { searchProduct, products } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Recherche de produits"
-              value={searchProduct}
-              onChange={this.onChangesearchProduct}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchProduct}
-              >
-                Search
-              </button>
+      <div id="pageproduits">
+        <div className="list row justify-content-md-center p-top-perso">
+          <div className="col-md-8">
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Recherche de produits"
+                value={searchProduct}
+                onChange={this.onChangesearchProduct}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={this.searchProduct}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="container p-top-perso">
+            <h3 class="text-center">
+              <i class="fas fa-search"></i> Vos résultats
+            </h3>
+            <div class="row  p-top-perso">
+              {products.map((product) => (
+                <div class="col-xs-12 col-sm-6 col-md-3" key={product.id}>
+                  <Link to={"/products/" + product.id}>
+                    <div class="card-body text-center">
+                      <img
+                        class="img-fluid img-thumbnail"
+                        src={product.image_small_url}
+                        alt=""
+                      />
+
+                      <h4 class="card-title">{product.product_name}</h4>
+                    </div>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        <div class="container">
-          <h3 class="text-center">Vos résultats</h3>
-          <div class="row">
-            {products.map((product) => (
-              <div class="col-xs-12 col-sm-6 col-md-4" key={product.id}>
-                <div class="card-body text-center">
-                  <p><img class=" img-fluid" src={product.image_small_url} alt="" /></p>
-                  <h4 class="card-title">{product.product_name}</h4>
-                  <Link to={"/products/" + product.id}>Détails </Link>
-                </div>
-              </div>
-            )
-            )
-            }
-          </div>
-        </div>
       </div>
-    )
+    );
   }
 }

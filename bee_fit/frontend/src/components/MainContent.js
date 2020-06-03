@@ -15,6 +15,7 @@ import PasswordResetDone from "./auth/PasswordResetDone";
 import PasswordResetConfirm from "./auth/PasswordResetConfirm";
 import Search from "./Products/Search"
 import Fitness from "./layout/FitnessPage";
+import ProductDetails from "./Products/ProductDetails";
 
 const MainContent = () => (
   <div>
@@ -33,6 +34,8 @@ const MainContent = () => (
       <Route path="/change_password" component={RequireAuth(PasswordChange)} />
       <Route path="/fitness" component={Fitness} />
       <Route path="/allproducts" component ={Search} />
+      <Route path="/products/:id" component ={ProductDetails} />
+
     </Switch>
   </div>
 );
