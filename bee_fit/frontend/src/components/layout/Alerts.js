@@ -21,6 +21,7 @@ export class Alerts extends Component {
       if (error.message.diabetique) alert.error(`Je suis diabétique: ${error.message.diabetique.join()}`);
       if (error.message.username) alert.error(`Username: ${error.message.username.join()}`);
       if (error.message.email) alert.error(`Email: ${error.message.email.join()}`);
+      if (error.message.password1) alert.error(`Mot de passe: ${error.message.password1.join()}`);
       if (error.message.non_field_errors) alert.error(error.message.non_field_errors.join());
     }
 

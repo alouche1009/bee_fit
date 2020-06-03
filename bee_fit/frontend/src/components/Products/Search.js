@@ -13,13 +13,9 @@ export default class Search extends Component {
     this.onChangesearchProduct = this.onChangesearchProduct.bind(this);
     this.retrieveProducts = this.retrieveProducts.bind(this);
     this.searchProduct = this.searchProduct.bind(this);
-    this.refreshList = this.refreshList.bind(this);
-    this.setActiveProduct = this.searchProduct.bind(this);
 
     this.state = {
       products: [],
-      currentProduct: null,
-      currentIndex: -1,
       searchProduct: ""
     };
   }
@@ -62,24 +58,8 @@ export default class Search extends Component {
       });
   }
 
-  refreshList() {
-    this.retrieveProducts();
-    this.setState({
-      currentProduct: null,
-      currentIndex: -1
-    });
-  }
-
-  setActiveProduct(product, index) {
-    this.setState({
-      currentProduct: product,
-      currentIndex: index
-    });
-  }
-
-
   render() {
-    const { searchProduct, products, currentProduct, currentIndex } = this.state;
+    const { searchProduct, products } = this.state;
 
     return (
       <div className="list row">
@@ -88,7 +68,7 @@ export default class Search extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by title"
+              placeholder="Recherche de produits"
               value={searchProduct}
               onChange={this.onChangesearchProduct}
             />
@@ -103,60 +83,21 @@ export default class Search extends Component {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <h4>Aliments</h4>
-
-          <ul className="list-group">
-            {products &&
-              products.map((product, index) => (
-                <li className={
-                  "list-group-item " +
-                  (index === currentIndex ? "active" : "")
-                }
-                  onClick={() => this.setActiveProduct(product, index)}
-                  key={index}
-                >
-                  {product.product_name}
-                </li>
-              ))}
-          </ul>
-        </div>
-
-        <div className="col-md-6">
-          {currentProduct ? (
-            <div>
-              <h4>Products</h4>
-              <div>
-                <label>
-                  <strong>Nom:</strong>
-                </label>{" "}
-                {currentProduct.product_name}
+        <div class="container">
+          <h3 class="text-center">Vos résultats</h3>
+          <div class="row">
+            {products.map((product) => (
+              <div class="col-xs-12 col-sm-6 col-md-4" key={product.id}>
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src={product.image_small_url} alt="" /></p>
+                  <h4 class="card-title">{product.product_name}</h4>
+                  <Link to={"/products/" + product.id}>Détails </Link>
+                </div>
               </div>
-              <div>
-                <label>
-                  <strong>Catégorie:</strong>
-                </label>{" "}
-                {currentProduct.categories}
-              </div>
-              <div>
-                <label>
-                  <strong>Quantité:</strong>
-                </label>{" "}
-                {currentProduct.quantity}
-              </div>
-
-              <Link
-                to={"/products/" + currentProduct.id}
-                className="badge badge-warning"
-              >
-                Détails
-              </Link>
-            </div>
-          ) : (
-              <div>
-                <br />
-              </div>
-            )}
+            )
+            )
+            }
+          </div>
         </div>
       </div>
     )

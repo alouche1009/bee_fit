@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createMessage, returnErrors } from './messages';
-import { GET_PRODUCTS, FIND_PRODUCTS } from './types';
+import { GET_PRODUCTS, FIND_PRODUCTS, PRODUCT_DETAILS } from './types';
 
 
   export function getProducts(dispatch) {
@@ -21,6 +21,19 @@ export function findProducts(dispatch, product_name) {
   .then((res) => {
     dispatch({
       type: FIND_PRODUCTS,
+      payload: res.data,
+    });
+  })
+    .catch((err) => {
+          dispatch(returnErrors(err.response.data, err.response.status));
+      });
+}
+
+export function productDetails(dispatch, id) {
+  return axios.get(`http://127.0.0.1:8000/api/products/${id}`)
+  .then((res) => {
+    dispatch({
+      type: PRODUCT_DETAILS,
       payload: res.data,
     });
   })
