@@ -17,7 +17,7 @@ export default class Product extends Component {
         categories: [],
         ingredients_text: [],
         allergens: [],
-        nutriscore_score: "",
+        nutriscore_grade: "",
         image_url: "",
         image_ingredients_url: "",
         energy_kcal_100g: "",
@@ -77,8 +77,8 @@ export default class Product extends Component {
               <div className="form-group">Allergènes: Non renseignés
               </div>
             )}
-          {currentProduct.nutriscore_score ? (
-            <div className="form-group">Nutriscore: {currentProduct.nutriscore_score}
+          {currentProduct.nutriscore_grade ? (
+            <div className="form-group">Nutriscore: {currentProduct.nutriscore_grade}
             </div>
           ) : (
               <div className="form-group">Nutriscore: Non renseigné
