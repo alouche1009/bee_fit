@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loadCheatList,deleteFood} from '../../../actions/nutrition'
+import {loadCheatList,deleteFood} from '../../../actions/calories'
 import FoodTable from './FoodTable'
 
 class Cheat extends React.Component {

@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {Card,Form,Button} from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
-import {getUserWeight,updateUserWeight}  from '../../../actions/nutrition'
-import {getProfileData, updateProfileData}  from '../../../actions/auth'
+import {getUserWeight,updateUserWeight}  from '../../../actions/calories'
+import {getProfileData, updateProfileData}  from '../../../actions/authActions'
 
 const UpdateWeightForm = () =>{
 

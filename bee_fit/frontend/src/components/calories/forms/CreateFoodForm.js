@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {addFood} from '../../../actions/nutrition'
+import {addFood} from '../../../actions/calories'
 import {Form,Col,Row,Button} from 'react-bootstrap'
 
 const CreateFoodForm = (props) => {

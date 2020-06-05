@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FoodTable from './FoodTable'
-import {loadBreakfastList,deleteFood} from '../../../actions/nutrition'
+import {loadBreakfastList,deleteFood} from '../../../actions/calories'
 
 
 class Breakfast extends React.Component{

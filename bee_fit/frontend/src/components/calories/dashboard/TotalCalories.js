@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCalories } from '../../../actions/nutrition'
+import { getCalories } from '../../../actions/calories'
 import { Doughnut } from 'react-chartjs-2'
 import UpdateCalorieGoal from '../forms/UpdateCalorieGoal'
 import UpdateWeight from "../forms/UpdateWeight"

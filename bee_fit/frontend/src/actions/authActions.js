@@ -6,6 +6,7 @@ import { AuthUrls } from "../constants/urls";
 import store from "../store";
 import { getUserToken } from "../utils/authUtils";
 import { createMessage, returnErrors } from './messages';
+import { GET_PROFILE_DATA, UPDATE_PROFILE_DATA, GET_ERRORS } from "./types"
 
 export function authLogin(token) {
     return {
@@ -176,3 +177,60 @@ export const tokenConfig = () => {
     }
     return config;
 };
+
+export const updateProfileData = (calories) => (dispatch,getState) => {
+    const config = configureConfig(getState)
+    const body = JSON.stringify({"daily_calories":calories})
+    axios.put('http://localhost:8000/api/profile', body,config)
+    .then(res=>{
+        dispatch({
+            type:UPDATE_PROFILE_DATA,
+            payload:res.data
+        })
+    }).catch(err=>{
+        const errors = {
+            msg:err.response.data,
+            status:err.response.status
+        }
+        dispatch({
+            type:GET_ERRORS,
+            payload:errors
+        })
+    })
+}
+// helper function
+const configureConfig = (getState) => {
+    const token = getState().auth.token
+
+    const config = {
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    
+    if (token) {
+        config.headers['Authorization'] = `Token ${token}`
+    }
+
+    return config
+}
+
+export const getProfileData = () => (dispatch,getState) => {
+    const config = configureConfig(getState)
+    axios.get('http://localhost:8000/api/profile',config)
+    .then(res=>{
+        dispatch({
+            type:GET_PROFILE_DATA,
+            payload:res.data
+        })
+    }).catch(err=>{
+        const errors = {
+            msg:err.response.data,
+            status:err.response.status
+        }
+        dispatch({
+            type:GET_ERRORS,
+            payload:errors
+        })
+    })
+}

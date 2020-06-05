@@ -1,12 +1,13 @@
 import React from 'react'
 import {Container,Col,Row,Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {getProfileData} from '../../../actions/auth'
+import {getProfileData} from '../../../actions/authActions'
 import UpdateWeight from '../forms/UpdateWeight'
 import UpdateCalorieGoal from '../forms/UpdateCalorieGoal'
 import DailyFoodLog from './DailyFoodLog'
 import TotalCalories from './TotalCalories'
 import Statistics from '../statistics/Statistics'
+import WeekAverages from './WeekAverage'
 
 
 
@@ -55,8 +56,12 @@ class Dashboard extends React.Component {
                                 <DailyFoodLog />
                             </Col>
 
-                          </> : <Statistics /> }
+                          </> : 
+                          <Statistics /> }
                         </Row>
+                        <Row>
+                        <WeekAverages />
+                        </Row> 
                     </Container>
                 </>
         )

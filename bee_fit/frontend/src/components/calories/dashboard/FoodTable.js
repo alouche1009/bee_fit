@@ -24,11 +24,11 @@ const FoodTable = (props) => {
             <Table striped bordered hover responsive size="sm">
                 <thead>
                     <tr>
-                        <th>Produit</th>
-                        <th>Calories</th>
-                        <th>Lipides</th>
-                        <th>Protéines</th>
-                        <th>Glucides</th>
+                        <th>🛒 Produit</th>
+                        <th>📈 Calories</th>
+                        <th>🧈 Lipides</th>
+                        <th>🥩 Protéines</th>
+                        <th>🍞 Glucides</th>
                         <th></th>
                     </tr>
                     

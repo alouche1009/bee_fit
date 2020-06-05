@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import {connect} from 'react-redux'
-import {loadSnackList,deleteFood} from '../../../actions/nutrition'
+import {loadSnackList,deleteFood} from '../../../actions/calories'
 import FoodTable from './FoodTable'
 
 class Snacks extends React.Component{
