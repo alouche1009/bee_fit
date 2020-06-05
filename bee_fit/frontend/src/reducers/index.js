@@ -6,6 +6,8 @@ import errors from './errors';
 import messages from './messages'
 import auth from './auth'; 
 import cal from "./cal";
+import aut from "./aut";
+import nutrition from "./nutrition"
 
 const rootReducer = combineReducers({
     form: formReducer,
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
     errors,
     messages,
     cal,
+    aut,
+    nutrition,
 });
 
 export default rootReducer;

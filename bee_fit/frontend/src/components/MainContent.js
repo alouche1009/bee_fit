@@ -16,6 +16,8 @@ import PasswordResetConfirm from "./auth/PasswordResetConfirm";
 import Search from "./Products/Search"
 import Fitness from "./layout/FitnessPage";
 import ProductDetails from "./Products/ProductDetails";
+import DailyFoodLog from "./calories/dashboard/DailyFoodLog";
+import Dashboard from "./calories/dashboard/Dashboard"
 
 const MainContent = () => (
   <div>
@@ -35,6 +37,8 @@ const MainContent = () => (
       <Route path="/fitness" component={Fitness} />
       <Route path="/allproducts" component ={Search} />
       <Route path="/products/:id" component ={ProductDetails} />
+      <Route path="/calories" exact component={Dashboard} />
+
 
     </Switch>
   </div>

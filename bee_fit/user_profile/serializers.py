@@ -50,3 +50,18 @@ class UserSerializer(UserDetailsSerializer):
                 profile.diabetique = diabetique
             profile.save()
         return instance
+
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from .models import Profile,Weight
+from django.contrib.auth import authenticate
+
+class WeightSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Weight
+        fields = ['number','date_recorded']
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['daily_calories']

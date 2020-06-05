@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('user_profile.urls')),
-    path('', include('calories.urls'))
+    path('', include('products.urls')),
+    path('', include('calories_tracker.urls'))
     
 ]
 

@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'multiselectfield' ,
     "user_profile",
     'corsheaders',
-    "calories",
+    "products",
+    "calories_tracker",
 
 ]
 

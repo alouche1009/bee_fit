@@ -47,8 +47,6 @@ class UserProfile(models.Model):
     )
     taille = models.PositiveIntegerField(
         validators=[MaxValueValidator(250), MinValueValidator(80)], blank=True, null=True)
-    poids = models.FloatField(
-        validators=[MaxValueValidator(300), MinValueValidator(0)],blank=True, null=True)
     objectif_poids = models.FloatField(
         validators=[MaxValueValidator(300), MinValueValidator(20)], blank=True, null=True)
     expected_calories = models.IntegerField(blank=True, null=True, default = 2000)
@@ -75,3 +73,25 @@ class UserProfile(models.Model):
         if instance:
             user_profile = UserProfile.objects.get(user=instance)
             user_profile.delete()
+
+
+class Profile(models.Model):
+    daily_calories = models.IntegerField(null=True)
+    goal_weight = models.FloatField(null=True)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+
+def post_save_user_model_receiver(sender,instance,created,*args,**kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    else:
+        pass
+
+class Weight(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    number = models.FloatField()
+    date_recorded = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.number} - {self.date_recorded}"
+
+post_save.connect(post_save_user_model_receiver,sender=User)

@@ -98,13 +98,10 @@ export class Header extends Component {
                   Nos services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item disabled" href="#">
-                    <i class="fas fa-lock"></i>Votre consommation
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item disabled" href="#">
-                    <i class="fas fa-lock"></i> Suivi de poids
-                  </a>
+                <Link to="/calories" class="dropdown-item">
+                    {" "}
+                    Mes calories, mon poids
+                  </Link>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">
                     Aide nutritive

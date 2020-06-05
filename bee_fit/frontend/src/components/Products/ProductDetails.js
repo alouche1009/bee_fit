@@ -53,7 +53,6 @@ export default class Product extends Component {
     return (
       <div>
         <div className="edit-form">
-          <h4>Tutorial</h4>
           <div className="form-group">{currentProduct.product_name}
           </div>
           {currentProduct.categories ? (
