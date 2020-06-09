@@ -103,18 +103,10 @@ export class Header extends Component {
                     Mes calories, mon poids
                   </Link>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
-                    Aide nutritive
-                  </a>
-                  <div class="dropdown-divider"></div>
                   <Link to="/allproducts" class="dropdown-item">
                     {" "}
                     Recherche d'aliments
                   </Link>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
-                    Recettes
-                  </a>
                   <div class="dropdown-divider"></div>
                   <Link to="/fitness" class="dropdown-item">
                     {" "}
@@ -124,7 +116,7 @@ export class Header extends Component {
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="#qui">
                   Qui sommes nous ?
                 </a>
               </li>

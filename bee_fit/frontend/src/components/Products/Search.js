@@ -100,7 +100,6 @@ export default class Search extends Component {
                         src={product.image_small_url}
                         alt=""
                       />
-
                       <h4 class="card-title">{product.product_name}</h4>
                     </div>
                   </Link>

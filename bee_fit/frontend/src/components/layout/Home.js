@@ -24,46 +24,15 @@ export class Home extends Component {
                     <img
                       class="d-block mx-auto"
                       alt="Carousel Bootstrap First"
-                      src="https://www.layoutit.com/img/sports-q-c-1600-500-1.jpg"
+                      src="../../static/frontend/images/cuisine.png"
                     />
-                    <div class="carousel-caption">
-                      <h4>First Thumbnail label</h4>
-                      <p>
-                        Cras justo odio, dapibus ac facilisis in, egestas eget
-                        quam. Donec id elit non mi porta gravida at eget metus.
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                      </p>
-                    </div>
                   </div>
                   <div class="carousel-item">
                     <img
                       class="d-block mx-auto"
                       alt="Carousel Bootstrap Second"
-                      src="https://www.layoutit.com/img/sports-q-c-1600-500-2.jpg"
+                      src="../../static/frontend/images/fitness.jpg"
                     />
-                    <div class="carousel-caption">
-                      <h4>Second Thumbnail label</h4>
-                      <p>
-                        Cras justo odio, dapibus ac facilisis in, egestas eget
-                        quam. Donec id elit non mi porta gravida at eget metus.
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block mx-auto"
-                      alt="Carousel Bootstrap Third"
-                      src="https://www.layoutit.com/img/sports-q-c-1600-500-3.jpg"
-                    />
-                    <div class="carousel-caption">
-                      <h4>Third Thumbnail label</h4>
-                      <p>
-                        Cras justo odio, dapibus ac facilisis in, egestas eget
-                        quam. Donec id elit non mi porta gravida at eget metus.
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                      </p>
-                    </div>
                   </div>
                 </div>{" "}
                 <a
@@ -98,78 +67,33 @@ export class Home extends Component {
             <div class="col-md-12">
               <h2 class="text-center"> Nos services</h2>
               <p class="text-center">
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus. Etiam porta sem malesuada
-                magna mollis euismod. Donec sed odio dui.
+                Parce que chez Bee-Fit nous pensons que tout le monde a le droit de manger mieux et de devenir acteur de sa propre santé nous vous proposons des services gratuits, sans inscription et sans pub c'est promis!
               </p>
               <div class="row p-top-perso">
-                <div class="col-md-3">
-                  <div class="col-md-12 border card-perso">
-                    <h4 class="text-center">
-                      <i class="fas fa-apple-alt w-100"></i>
-                      Aide nutritive
-                    </h4>
-                    <p>
-                      <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                      </ul>
-                    </p>
-                    <button
-                      type="button"
-                      class="btn btn-md btn-block btn-primary"
-                    >
-                      Button
-                    </button>
-                  </div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="col-md-12 border card-perso">
                     <h4 class="text-center">
                       <i class="fas fa-search w-100"></i>
-                      Recherche d'aliments
+                      Informations nutritionnelles
                     </h4>
                     <p>
                       <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Plus de 600 000 aliments</li>
+                        <li class="fas fa-check w-100">Détails énergétiques</li>
+                        <li class="fas fa-check w-100">Nutriscore, ingrédients et allergènes</li>
                       </ul>
                     </p>
 
-                    <button
-                      type="button"
-                      class="btn btn-md btn-block btn-primary"
-                    >
-                      Button
-                    </button>
+                    <Link to="/allproducts">
+                      <button
+                        type="button"
+                        class="btn btn-md btn-block btn-primary"
+                      >
+                        Découvrir
+                    </button></Link>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="col-md-12 border card-perso">
-                    <h4 class="text-center">
-                      <i class="fas fa-utensils w-100"></i>
-                      Recettes
-                    </h4>
-                    <p>
-                      <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                      </ul>
-                    </p>
-
-                    <button
-                      type="button"
-                      class="btn btn-md btn-block btn-primary"
-                    >
-                      Button
-                    </button>
-                  </div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="col-md-12 border card-perso">
                     <h4 class="text-center">
                       <i class="fas fa-dumbbell w-100"></i>
@@ -177,18 +101,18 @@ export class Home extends Component {
                     </h4>
                     <p>
                       <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Coaching complet sur une semaine</li>
+                        <li class="fas fa-check w-100">3 entraînements</li>
+                        <li class="fas fa-check w-100">5 exercices</li>
                       </ul>
                     </p>
-
-                    <button
-                      type="button"
-                      class="btn btn-md btn-block btn-primary"
-                    >
-                      Button
-                    </button>
+                    <Link to="/fitness">
+                      <button
+                        type="button"
+                        class="btn btn-md btn-block btn-primary"
+                      >
+                        Découvrir
+                      </button></Link>
                   </div>
                 </div>
               </div>
@@ -202,18 +126,12 @@ export class Home extends Component {
               <div class="col-md-12">
                 <div class="row no-padding-b align-items-center">
                   <div class="col-md-6 ">
-                    <h3>Lorem</h3>
+                    <h3>Nos services en images</h3>
                     <p class="text-left">
-                      Lorem ipsum dolor sit amet,{" "}
-                      <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                      sapien sapien. Curabitur in metus urna. In hac habitasse
-                      platea dictumst. Phasellus eu sem sapien, sed vestibulum
-                      velit. Nam purus nibh, lacinia non faucibus et, pharetra
-                      in dolor. Sed iaculis posuere diam ut cursus.{" "}
+                      Avec Bee-Fit vous pouvez chercher les produits que vous conssomez au quotidien parmi nos 600 000 références et obtenir toutes les informations dont vous avez besoin pour manger mieux et manger sain.
+                      Parce qu'une alimentation équilibrée c'est bien mais qu'un mode de vie globalement sain c'est mieux, nous vous proposons des programmes sportifs adaptés à tous.
+                      Pour vous accompagner au mieux, un compteur de calories et un suivi de poids mensuel vous sont proposés.
                     </p>
-                    <button type="button" class="btn btn-primary">
-                      Button
-                    </button>
                   </div>
                   <div class="col-md-6">
                     <div class="row no-padding-b p-b-img">
@@ -264,58 +182,70 @@ export class Home extends Component {
                   <i class="fas fa-lock"></i> Nos services Premium
                 </h2>
                 <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce
-                  dapibus, tellus ac cursus commodo, tortor mauris condimentum
-                  nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-                  malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <a class="btn" href="#">
-                  View details »
-                </a>
+                  Toujours gratuits, nos services premium nécessitent de s'inscrire et de rejoindre la famille Bee-Fit. Mais promis c'est encore gratuit, sans pub et sans spam!                </p>
               </div>
               <p></p>
               <div class="row align-items-center">
                 <div class="col-md-6">
                   <img
-                    src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                    src="../../static/frontend/images/bfit.png"
                     class="img-fluid"
                     alt="Responsive image"
                   />
-                  <button
-                    type="button"
-                    class="btn btn-md btn-block btn-primary"
-                  >
-                    Devenir membre
+                  <Link to="/signup">
+
+                    <button
+                      type="button"
+                      class="btn btn-md btn-block btn-primary"
+                    >
+                      Devenir membre
                   </button>
+                  </Link>
                 </div>
                 <div class="col-md-3">
                   <div class="col-md-12 border card-perso">
                     <h4 class="text-center">
                       <i class="fas fa-apple-alt w-100"></i>
-                      Votre consommation
+                      Compteur de calories
                     </h4>
                     <p>
                       <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Apports détaillés</li>
+                        <li class="fas fa-check w-100">Visualisation facile</li>
+                        <li class="fas fa-check w-100">Suivi mensuel</li>
                       </ul>
                     </p>
+                    <Link to="/calories">
+                      <button
+                        type="button"
+                        class="btn btn-md btn-block btn-primary"
+                      >
+                        Découvrir
+                      </button></Link>
+
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="col-md-12 border card-perso">
                     <h4 class="text-center">
-                      <i class="fas fa-apple-alt w-100"></i>
+                      <i class="fas fa-weight w-100"></i>
                       Suivi de poids
                     </h4>
                     <p>
                       <ul class="list-perso">
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
-                        <li class="fas fa-check w-100">Diabétique</li>
+                        <li class="fas fa-check w-100">Entrées quotidiennes</li>
+                        <li class="fas fa-check w-100">Objectif poids</li>
+                        <li class="fas fa-check w-100">Suivi mensuel</li>
                       </ul>
                     </p>
+                    <Link to="/calories">
+                      <button
+                        type="button"
+                        class="btn btn-md btn-block btn-primary"
+                      >
+                        Découvrir
+                      </button></Link>
+
                   </div>
                 </div>
               </div>
@@ -329,49 +259,41 @@ export class Home extends Component {
           <div class="container text-light">
             <div class="row no-padding-b">
               <div class="col-md-12 text-center">
-                <h3 class="text-center">Qui sommes nous ?</h3>
-                <p>
-                  Lorem ipsum dolor sit amet,{" "}
-                  <em>
-                    Morbi commodo sodales nisi id sodales. Proin consectetur,
-                    nisi id commodo imperdiet, metus nunc consequat lectus, id
-                    bibendum diam velit et dui.
-                  </em>{" "}
-                  Proin massa magna, vulputate nec bibendum nec, posuere nec
-                  lacus.{" "}
-                </p>
-                <div class="row no-padding-b padding-interne-perso">
+                <a id="qui"><h3 class="text-center">Qui sommes nous ?</h3></a>
+                <p >
+                  Si vous voulez en savoir plus sur la jeune (et formidable) équipe Bee-Fit, vous pouvez venir nous faire un coucou sur Linkedin                </p>
+                <div class="row no-padding-b ">
                   <div class="col-md-3 hoverhead">
-                      <img onClick={() =>
-                        window.open("https://www.linkedin.com/in/guilhem-lacombe-037823144/", "_blank")
-                      }
+                    <img onClick={() =>
+                      window.open("https://www.linkedin.com/in/guilhem-lacombe-037823144/", "_blank")
+                    }
                       src="../../static/frontend/images/guilhem.png"
                       alt="Bootstrap Image Preview"
                       class="rounded-circle mw-100 img-fluid headphoto"
                     /><p class="hideme">Guilhem</p>
                   </div>
                   <div class="col-md-3 hoverhead">
-                     <img onClick={() =>
-                        window.open("https://www.linkedin.com/in/aurore-louche/", "_blank")
-                      }
+                    <img onClick={() =>
+                      window.open("https://www.linkedin.com/in/aurore-louche/", "_blank")
+                    }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/aurore.png"
                       class="rounded-circle mw-100 img-fluid headphoto "
                     /><p class="hideme">Aurore</p>
                   </div>
-                   <div class="col-md-3 hoverhead">
-                      <img onClick={() =>
-                        window.open("https://www.linkedin.com/in/marco-di-fazio-3528a8104/", "_blank")
-                      }
+                  <div class="col-md-3 hoverhead">
+                    <img onClick={() =>
+                      window.open("https://www.linkedin.com/in/marco-di-fazio-3528a8104/", "_blank")
+                    }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/marco.png"
                       class="rounded-circle headphoto"
                     /><p class="hideme">Marco</p>
                   </div>
                   <div class="col-md-3 hoverhead">
-                  <img onClick={() =>
-                        window.open("https://www.linkedin.com/in/sylvainneves/", "_blank")
-                      }
+                    <img onClick={() =>
+                      window.open("https://www.linkedin.com/in/sylvainneves/", "_blank")
+                    }
                       alt="Bootstrap Image Preview"
                       src="../../static/frontend/images/sylvain.png"
                       class="rounded-circle headphoto"
