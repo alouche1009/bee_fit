@@ -172,7 +172,6 @@ export class Home extends Component {
             </div>
           </div>
         </div>
-
         <div class="container">
           <div class="row padding-interne-perso">
             <div class="col-md-12 padding-interne-perso">

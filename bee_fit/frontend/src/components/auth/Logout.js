@@ -15,7 +15,9 @@ class Logout extends Component {
 
     render() {
         return (
+            <div className="Logout no-padding-b">
             <h2>A très vite sur Bee-Fit!</h2>
+            </div>
         );
     }
 }

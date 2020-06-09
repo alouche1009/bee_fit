@@ -1,128 +1,13 @@
-.Calotron {
-	float: right;
-	text-align: right;
-	margin-right: 28px;
-	position: relative;
-	bottom: 12px;
+.ImgAdd {
+	width: 14%;
 }
 
-.Calotron img {
-	width: 110px;
-	margin: 32px 0 50px 0;
-}
-
-.Calotron__net {
-	display: block;
-	font-size: 54px;
-	font-weight: bold;
-	color: #222722;
-}
-
-.Calotron__plusminuscontainer {
-	display: block;
-	position: relative;
-	bottom: 10px;
-}
-
-.Calotron__plusminus {
-	display: block;
-	width: 125px;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 15px;
-}
-
-.Calotron__plusminus--food {
-	color: red;
-	margin-right: 20px;
-}
-
-.Calotron__plusminus--exercise {
-	color: green;
-}
-
-.DaySelect {
-	margin: 0 0 0 84px;
-	width: 300px;
-	position: relative;
-	float: left;
-}
-
-.DaySelect--today-button {
-	position: absolute;
-	top: -26px;
-	left: 127px;
-}
-
-.DaySelect__arrow {
-	width: 18px;
-	height: 30px;
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	bottom: 8px;
-}
-
-.DaySelect__arrow.left {
-	margin-right: 26px;
-	background: url('images/left-arrow-icon.png') left no-repeat;
-	background-size: 90%;
-}
-
-.DaySelect__arrow.left:hover {
-	background-image: url('image/left-arrow-icon-hover.png');
-}
-
-.DaySelect__arrow.right {
-	margin-left: 26px;
-	background: url('images/right-arrow-icon.png') left no-repeat;
-	background-size: 90%;
-}
-
-.DaySelect__arrow.right:hover {
-	background-image: url('images/right-arrow-icon-hover.png');
-}
-
-.DaySelect__choose {
-	cursor: pointer;
-}
-
-.DaySelect__choose:hover .DaySelect__calendar {
-	background-image: url('resources/calendar-icon-hover.png');
-}
-
-.DaySelect__calendar {
-	width: 46px;
-	height: 50px;
-	background: url('resources/calendar-icon.png') left no-repeat;
-	background-size: 100%;
-	display: inline-block;
-}
-
-.DaySelect__daytext {
-	font-size: 18px;
-	position: relative;
-	bottom: 16px;
-	padding-left: 20px;
-	-webkit-user-select: none;     
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.DayPicker {
-	position: absolute;
-	top: -8px;
-	left: 40px;
-	background: white;
-	border-radius: 8px;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	z-index: 1;
-	box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.DayPicker .DayPicker-Day--selected {
-	background-color: #08ae23 !important;
+.Logout {
+  min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .MealGroup {

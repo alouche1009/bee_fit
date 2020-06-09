@@ -3,9 +3,14 @@ import React, { Component } from "react";
 export default class SignupDone extends Component {
     render() {
         return (
-            <h3 className="mx-5">
-                Merci de votre inscription! Pour accéder à toutes les fonctionnalités de Bee-Fit merci de vérifier votre adresse email en cliquant sur le lien qui vous a été envoyé.
-            </h3>
+            <div className="Logout no-padding-b">
+            <h2 className="Logout">
+                Merci de votre inscription! 
+                <br/>
+                <br/>
+                Pour accéder à toutes les fonctionnalités de Bee-Fit merci de vérifier votre adresse email en cliquant sur le lien qui vous a été envoyé.
+            </h2>
+            </div>
         )
     }
 }

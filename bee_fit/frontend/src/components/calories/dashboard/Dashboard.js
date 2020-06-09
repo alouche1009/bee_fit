@@ -55,13 +55,9 @@ class Dashboard extends React.Component {
                             <Col md={{ span: 8, offset: 2 }}>
                                 <DailyFoodLog />
                             </Col>
-
                           </> : 
                           <Statistics /> }
                         </Row>
-                        <Row>
-                        <WeekAverages />
-                        </Row> 
                     </Container>
                 </>
         )

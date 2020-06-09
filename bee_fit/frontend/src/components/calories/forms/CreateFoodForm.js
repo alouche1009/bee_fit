@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addFood} from '../../../actions/calories'
 import {Form,Col,Row,Button} from 'react-bootstrap'
+import SearchItem from './SearchItem'
+
 
 const CreateFoodForm = (props) => {
     
@@ -39,6 +41,7 @@ const CreateFoodForm = (props) => {
 
     return (
             <tr> 
+                <td><SearchItem /></td>
                     <td>
                         <Form.Control size="sm" id="name" type="name" value={formData.name} placeholder="Produit" onChange={(e) => updateFoodInput(e)}/> 
                     </td>
