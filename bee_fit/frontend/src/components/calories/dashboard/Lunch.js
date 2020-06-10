@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loadLunchList,deleteFood} from '../../../actions/calories'
-import FoodTable from './FoodTable'
+import {loadLunchList,deleteMeal} from '../../../actions/calories'
+import MealTable from './MealTable'
 
 class Lunch extends React.Component {
     constructor(props){
@@ -12,17 +12,17 @@ class Lunch extends React.Component {
         this.props.loadLunchList()
     }
 
-    deleteLunch = (food) => {
-        this.props.deleteFood(food)
+    deleteLunch = (meal) => {
+        this.props.deleteMeal(meal)
         
     }
     render(){
         return (
             <>
                 <h4 className="text-success">Déjeuner</h4>
-                <FoodTable 
-                    foodList = {this.props.lunchList}
-                    category="L"
+                <MealTable 
+                    mealList = {this.props.lunchList}
+                    meal_type="LUNCH"
                     onClickTrash={this.deleteLunch}
                 />
             </>
@@ -32,11 +32,11 @@ class Lunch extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        lunchList:state.nutrition.L
+        lunchList:state.nutrition.LUNCH
     }
 }
 
 export default connect(mapStateToProps,{
     loadLunchList,
-    deleteFood
+    deleteMeal
 })(Lunch)

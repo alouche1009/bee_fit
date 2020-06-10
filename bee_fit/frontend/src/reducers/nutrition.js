@@ -4,9 +4,9 @@ import {
     GET_DINNER,
     GET_LUNCH,
     GET_SNACKS,
-    ADD_FOOD,
-    EDIT_FOOD,
-    DELETE_FOOD,
+    ADD_MEAL,
+    EDIT_MEAL,
+    DELETE_MEAL,
     GET_CALORIES,
     UPDATE_CALORIES,
     GET_WEIGHT,
@@ -15,11 +15,9 @@ import {
 } from '../actions/types'
 
 const initialState = {
-    B:[],
-    L:[],
-    D:[],
-    S:[],
-    C:[],
+    BREAKFAST:[],
+    LUNCH:[],
+    DINNER:[],
     calories:{
         total:0,
         fat:0,
@@ -34,51 +32,41 @@ export default function(state=initialState,action){
         case GET_BREAKFAST:
             return{
                 ...state,
-                B:action.payload
+                BREAKFAST:action.payload
             }
         case GET_LUNCH:
             return{
                 ...state,
-                L:action.payload
+                LUNCH:action.payload
             }
         
         case GET_DINNER:
             return{
                 ...state,
-                D:action.payload
+                DINNER:action.payload
             }            
-        case GET_SNACKS:
-            return {
-                ...state,
-                S:action.payload
-            }
-        case GET_CHEAT:
-            return {
-                ...state,
-                C:action.payload
-            }
 
-        case ADD_FOOD:
+        case ADD_MEAL:
             return{
                 ...state,
-                [action.payload.category]:[...state[action.payload.category],action.payload]
+                [action.payload.meal_type]:[...state[action.payload.meal_type],action.payload]
             }
 
-        case DELETE_FOOD:
+        case DELETE_MEAL:
            return {
                ...state,
-               [action.payload.category]: state[action.payload.category].filter(food => food.id !== action.payload.id)
+               [action.payload.meal_type]: state[action.payload.meal_type].filter(meal => meal.id !== action.payload.id)
            }
 
-        case EDIT_FOOD:
+        case EDIT_MEAL:
             return {
                 ...state,
-                [action.payload.category]: state[action.payload.category].map(food =>{
-                    if (food.id !== action.payload.id){
-                        return food
+                [action.payload.meal_type]: state[action.payload.meal_type].map(meal =>{
+                    if (meal.id !== action.payload.id){
+                        return meal
                     } else {
                         return {
-                            ...food,
+                            ...meal,
                             ...action.payload
                         }
                     }
@@ -100,7 +88,7 @@ export default function(state=initialState,action){
             return {
                 ...state,
                 calories:{
-                    total:state.calories.total + action.payload.total_calories,
+                    total:state.calories.total + action.payload.daily_calories,
                     fat:state.calories.fat + action.payload.fat,
                     protein:state.calories.protein + action.payload.protein,
                     carbs:state.calories.carbs + action.payload.carbs

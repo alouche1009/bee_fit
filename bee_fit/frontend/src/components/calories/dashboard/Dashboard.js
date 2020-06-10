@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {getProfileData} from '../../../actions/authActions'
 import UpdateWeight from '../forms/UpdateWeight'
 import UpdateCalorieGoal from '../forms/UpdateCalorieGoal'
-import DailyFoodLog from './DailyFoodLog'
+import DailyMeal from './DailyMeal'
 import TotalCalories from './TotalCalories'
 import Statistics from '../statistics/Statistics'
 import WeekAverages from './WeekAverage'
@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     state = {
         hideStatistics:true,
         statsButtonColor:'outline-success',
-        foodLogButtonColor:'success'
+        mealLogButtonColor:'success'
     }
 
     componentDidMount(){
@@ -24,11 +24,11 @@ class Dashboard extends React.Component {
     }
 
     onClickShowStats = () => {
-        this.setState({hideStatistics:false,statsButtonColor:'success',foodLogButtonColor:'outline-success'})
+        this.setState({hideStatistics:false,statsButtonColor:'success',mealLogButtonColor:'outline-success'})
     }
 
-    onClickShowFoodLog = () => {
-        this.setState({hideStatistics:true,statsButtonColor:'outline-success',foodLogButtonColor:'success'})
+    onClickShowMealLog = () => {
+        this.setState({hideStatistics:true,statsButtonColor:'outline-success',mealLogButtonColor:'success'})
     }
 
     render(){
@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
                     <Container fluid className="mt-3">
 
                         <Row className="justify-content-center">
-                            <Button variant={this.state.foodLogButtonColor} className="mr-3" onClick={this.onClickShowFoodLog}>
+                            <Button variant={this.state.mealLogButtonColor} className="mr-3" onClick={this.onClickShowMealLog}>
                                 Mes calories du jour
                             </Button>
 
@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
                             {this.state.hideStatistics ? 
                             <>
                             <Col md={{ span: 8, offset: 2 }}>
-                                <DailyFoodLog />
+                                <DailyMeal />
                             </Col>
                           </> : 
                           <Statistics /> }

@@ -7,7 +7,7 @@ import {Line} from 'react-chartjs-2';
 function convertToDataSet(arr){
     var xLabel;
     var yLabel;
-    xLabel = arr.map(p => p.date_eaten)
+    xLabel = arr.map(p => p.dayDate)
     yLabel = arr.map(p => p.totalCalories)
     const dataSet = {
         labels: xLabel,

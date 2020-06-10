@@ -5,9 +5,9 @@ import {
     GET_DINNER,
     GET_LUNCH,
     GET_SNACKS,
-    ADD_FOOD,
-    EDIT_FOOD,
-    DELETE_FOOD,
+    ADD_MEAL,
+    EDIT_MEAL,
+    DELETE_MEAL,
     GET_CALORIES,
     UPDATE_CALORIES,
     GET_WEIGHT,
@@ -15,7 +15,7 @@ import {
     GET_ERRORS
 } from './types'
 
-const foodLogUrl = 'http://localhost:8000/api/food-log/'
+const foodLogUrl = 'http://localhost:8000/api/meal/'
 const foodCategoryUrl = 'http://localhost:8000/api/'
 
 export const loadBreakfastList = () =>(dispatch,getState) => {
@@ -124,10 +124,10 @@ export const loadCheatList = () =>(dispatch,getState) => {
     })
 }
 
-export const addFood = (food) => (dispatch,getState) => {
+export const addMeal = (meal) => (dispatch,getState) => {
     const config = configureConfig(dispatch,getState)
-    const body = JSON.stringify(food)
-    console.log(food)
+    const body = JSON.stringify(meal)
+    console.log(meal)
     axios.post(foodLogUrl,body,config)
     .then( res => {
         dispatch({
@@ -135,7 +135,7 @@ export const addFood = (food) => (dispatch,getState) => {
             payload:res.data
         })
         dispatch({
-            type:ADD_FOOD,
+            type:ADD_MEAL,
             payload:res.data
         })
     }).catch(err =>{
@@ -151,26 +151,26 @@ export const addFood = (food) => (dispatch,getState) => {
     })
 }
 
-export const editFood = (foodItem,original) => (dispatch,getState) => {
+export const editMeal = (mealItem,original) => (dispatch,getState) => {
     const config = configureConfig(dispatch,getState)
-    const body = JSON.stringify(foodItem)
+    const body = JSON.stringify(mealItem)
 
     // change between edited item and original
-    const total_calories =  foodItem.total_calories - original.total_calories
-    const fat = foodItem.fat - original.fat
-    const protein =  foodItem.protein - original.protein
-    const carbs = foodItem.carbs - original.carbs
+    const daily_calories =  mealItem.daily_calories - original.daily_calories
+    const fat = mealItem.fat - original.fat
+    const protein =  mealItem.protein - original.protein
+    const carbs = mealItem.carbs - original.carbs
 
     axios.put(foodLogUrl+original.id,body,config)
     .then(res =>{
         dispatch({
-            type:EDIT_FOOD,
+            type:EDIT_MEAL,
             payload:res.data
         })
     }).then (
         dispatch({
             type:UPDATE_CALORIES,
-            payload:{total_calories,fat,protein,carbs}
+            payload:{daily_calories,fat,protein,carbs}
         })
     ).catch(err=>{
         const errors = {
@@ -185,25 +185,25 @@ export const editFood = (foodItem,original) => (dispatch,getState) => {
 
 }
 
-export const deleteFood = (food) => (dispatch,getState) => {
-    const category = food.category
-    const id = food.id
-    const total_calories = -food.total_calories
-    const fat = -food.fat
-    const protein = -food.protein
-    const carbs = -food.carbs
+export const deleteMeal = (meal) => (dispatch,getState) => {
+    const meal_type = meal.meal_type
+    const id = meal.id
+    const daily_calories = -meal.daily_calories
+    const fat = -meal.fat
+    const protein = -meal.protein
+    const carbs = -meal.carbs
     const config = configureConfig(dispatch,getState)
 
     axios.delete(foodLogUrl + id,config)
     .then(
         dispatch({
-            type:DELETE_FOOD,
-            payload:{id,category}
+            type:DELETE_MEAL,
+            payload:{id,meal_type}
         })
     ).then(
         dispatch({
             type:UPDATE_CALORIES,
-            payload:{total_calories,fat,protein,carbs}
+            payload:{daily_calories,fat,protein,carbs}
         })
     ).catch(err =>{
         const errors = {

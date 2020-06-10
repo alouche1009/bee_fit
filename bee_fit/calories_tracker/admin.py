@@ -1,5 +1,5 @@
 from django.contrib import admin
-from calories_tracker.models import Food
+from calories_tracker.models import Meal
 
 # Register your models here.
-admin.site.register(Food)
+admin.site.register(Meal)
