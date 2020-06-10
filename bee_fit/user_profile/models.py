@@ -82,12 +82,11 @@ class Health(models.Model):
     goal_weight = models.FloatField(null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
-    @receiver(post_save, sender=User)
-    def create_health_for_user(sender, instance, created, *args, **kwargs):
-        if created:
-            Health.objects.get_or_create(user=instance)
-        else:
-            pass
+def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
+    if created:
+        Health.objects.get_or_create(user=instance)
+    else:
+        pass
 
 class Weight(models.Model):
     user = models.ForeignKey(Health, on_delete=models.CASCADE)
@@ -96,3 +95,5 @@ class Weight(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.number} - {self.date_recorded}"
+
+post_save.connect(post_save_user_model_receiver,sender=User)
