@@ -1,4 +1,4 @@
-import { updateUserProfile } from "../../actions/authActions";
+import { updateProfile } from "../../actions/authActions";
 import React, { useState, Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -67,7 +67,7 @@ export class Login extends Component {
   };
 
   static propTypes = {
-    updateUserProfile: PropTypes.func.isRequired,
+    updateProfile: PropTypes.func.isRequired,
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -88,7 +88,7 @@ export class Login extends Component {
     e.preventDefault();
     const { age, sexe, taille, poids, objectif_poids, allergies, diabetique } = this.state;
     const info = { age, sexe, taille, poids, objectif_poids, allergies, diabetique };
-    this.props.updateUserProfile(info);
+    this.props.updateProfile(info);
     this.setState({
       age: '',
       sexe: '',
@@ -209,4 +209,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { updateUserProfile })(Login);
+export default connect(mapStateToProps, { updateProfile })(Login);

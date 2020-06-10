@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import { logout } from "../../actions/authActions";
 
 class Logout extends Component {
 
     static propTypes = {
-        logoutUser: PropTypes.func.isRequired
+        logout: PropTypes.func.isRequired
     };
 
     componentWillMount() {
-        this.props.logoutUser();
+        this.props.logout();
     }
 
     render() {
@@ -22,4 +22,4 @@ class Logout extends Component {
     }
 }
 
-export default connect(null, { logoutUser })(Logout);
+export default connect(null, { logout })(Logout);

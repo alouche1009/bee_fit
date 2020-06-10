@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getUserProfile } from "../../actions/authActions";
+import { getProfile } from "../../actions/authActions";
 
 export class Header extends Component {
   static propTypes = {
     authenticated: PropTypes.bool,
-    getUserProfile: PropTypes.func.isRequired,
+    getProfile: PropTypes.func.isRequired,
     user: PropTypes.object,
   };
 
   componentWillMount() {
-    this.props.getUserProfile();
+    this.props.getProfile();
   }
 
   authLinks() {
@@ -188,4 +188,4 @@ function mapStateToProps(state) {
     authenticated: state.auth.authenticated,
   };
 }
-export default connect(mapStateToProps, { getUserProfile })(Header);
+export default connect(mapStateToProps, { getProfile })(Header);

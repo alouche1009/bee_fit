@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container,Col,Row,Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {getProfileData} from '../../../actions/authActions'
+import {getHealthData} from '../../../actions/authActions'
 import UpdateWeight from '../forms/UpdateWeight'
 import UpdateCalorieGoal from '../forms/UpdateCalorieGoal'
 import DailyMeal from './DailyMeal'
@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getProfileData()
+        this.props.getHealthData()
     }
 
     onClickShowStats = () => {
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{getProfileData})(Dashboard)
+export default connect(mapStateToProps,{getHealthData})(Dashboard)

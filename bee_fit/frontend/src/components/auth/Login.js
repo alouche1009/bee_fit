@@ -3,7 +3,7 @@ import { reduxForm, Field, propTypes } from "redux-form";
 import { Link } from "react-router-dom";
 import { required } from "redux-form-validators";
 import { renderField, renderError } from "../../utils/renderUtils";
-import { loginUser } from "../../actions/authActions";
+import { login } from "../../actions/authActions";
 
 class Login extends Component {
   static propTypes = {
@@ -60,5 +60,5 @@ class Login extends Component {
 
 export default reduxForm({
   form: "login",
-  onSubmit: loginUser,
+  onSubmit: login,
 })(Login);

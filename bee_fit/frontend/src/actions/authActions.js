@@ -4,8 +4,7 @@ import { AuthTypes } from "../constants/actionsTypes";
 import { AuthUrls } from "../constants/urls";
 import store from "../store";
 import { getUserToken } from "../utils/authUtils";
-import { createMessage, returnErrors } from './messages';
-import { GET_PROFILE_DATA, UPDATE_PROFILE_DATA, GET_ERRORS } from "./types"
+import { createMessage, returnErrors } from './messagesActions';
 
 export function authLogin(token) {
     return {
@@ -14,30 +13,27 @@ export function authLogin(token) {
     };
 }
 
-export function loginUser(formValues, dispatch, props) {
-    const loginUrl = AuthUrls.LOGIN;
-
-    return axios.post(loginUrl, formValues).then((response) => {
+export function login(formValues, dispatch, props) {
+    return axios.post(AuthUrls.LOGIN, formValues).then((response) => {
         const token = response.data.key;
         dispatch(authLogin(token));
         localStorage.setItem("token", token);
         history.push("/");
-    }) .catch((err) => {
-        dispatch(returnErrors(err.response.data, err.response.status));
-      });
+    })
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+        });
 }
 
-export function logoutUser() {
+export function logout() {
     localStorage.removeItem("token");
     return {
         type: AuthTypes.LOGOUT
     };
 }
 
-export function signupUser(formValues, dispatch, props) {
-    const signupUrl = AuthUrls.SIGNUP;
-
-    return axios.post(signupUrl, formValues)
+export function signUp(formValues, dispatch, props) {
+    return axios.post(AuthUrls.SIGNUP, formValues)
         .then((response) => {
             history.push("/signup_done");
         })
@@ -46,14 +42,14 @@ export function signupUser(formValues, dispatch, props) {
         });
 }
 
-export function setUserProfile(payload) {
+export function setProfile(payload) {
     return {
         type: AuthTypes.USER_PROFILE,
         payload: payload
     };
 }
 
-export function getUserProfile() {
+export function getProfile() {
     return function (dispatch) {
         const token = getUserToken(store.getState());
         if (token) {
@@ -61,21 +57,22 @@ export function getUserProfile() {
                 headers: {
                     authorization: 'Token ' + token
                 }
-            }).then(response => {
-                dispatch(setUserProfile(response.data))
-            }).catch((err) => {
-                dispatch(returnErrors(err.response.data, err.response.status));
-            });
+            })
+                .then(response => {
+                    dispatch(setProfile(response.data))
+                })
+                .catch((err) => {
+                    dispatch(returnErrors(err.response.data, err.response.status));
+                });
         }
     };
 }
 
 export function changePassword(formValues, dispatch, props) {
-    const changePasswordUrl = AuthUrls.CHANGE_PASSWORD;
     const token = getUserToken(store.getState());
 
     if (token) {
-        return axios.post(changePasswordUrl, formValues, {
+        return axios.post(AuthUrls.CHANGE_PASSWORD, formValues, {
             headers: {
                 authorization: 'Token ' + token
             }
@@ -91,65 +88,64 @@ export function changePassword(formValues, dispatch, props) {
 }
 
 export function resetPassword(formValues, dispatch, props) {
-    const resetPasswordUrl = AuthUrls.RESET_PASSWORD;
-
-    return axios.post(resetPasswordUrl, formValues)
+    return axios.post(AuthUrls.RESET_PASSWORD, formValues)
         .then(res => {
             dispatch(createMessage({ resetPassword: 'Un email vous a été envoyé pour modifier votre mot de passe' }));
             history.push("/reset_password_done");
-        }).catch((err) => {
+        })
+        .catch((err) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
 export function confirmPasswordChange(formValues, dispatch, props) {
     const { uid, token } = props.match.params;
-    const resetPasswordConfirmUrl = AuthUrls.RESET_PASSWORD_CONFIRM;
     const data = Object.assign(formValues, { uid, token });
 
-    return axios.post(resetPasswordConfirmUrl, data)
+    return axios.post(AuthUrls.RESET_PASSWORD_CONFIRM, data)
         .then(res => {
             dispatch(createMessage({ confirmPasswordChange: 'Votre mot de passe a bien été modifié' }));
             history.push("/login");
-        }).catch((err) => {
+        })
+        .catch((err) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
-export function activateUserAccount(formValues, dispatch, props) {
-
+export function accountActivation(formValues, dispatch, props) {
     const { key } = props.match.params;
-    const activateUserUrl = AuthUrls.USER_ACTIVATION;
     const data = Object.assign(formValues, { key });
 
-    return axios.post(activateUserUrl, data)
+    return axios.post(AuthUrls.USER_ACTIVATION, data)
         .then(res => {
-            dispatch(createMessage({ activateUserAccount: 'Votre compte est bien activé! Veuillez vous connecter' }));
+            dispatch(createMessage({ accountActivation: 'Votre compte est bien activé! Veuillez vous connecter' }));
             history.push("/login");
-        }).catch((err) => {
+        })
+        .catch((err) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
 }
 
-export function updateUserProfile(formValues, dispatch, props) {
+export function updateProfile(formValues, dispatch, props) {
     const token = getUserToken(store.getState());
     return dispatch => {
-    return axios.patch(AuthUrls.USER_PROFILE, formValues, {
-        headers: {
-            authorization: 'Token ' + token
-        }
-    })
-        .then(response => {
-            dispatch(createMessage({ updateUserProfile: 'Vos informations ont bien été enregistrées' }));
-            history.push("/profile");
-        }).catch((err) => {
-            dispatch(returnErrors(err.response.data, err.response.status));
-        });
+        return axios.patch(AuthUrls.USER_PROFILE, formValues, {
+            headers: {
+                authorization: 'Token ' + token
+            }
+        })
+            .then(response => {
+                dispatch(createMessage({ updateProfile: 'Vos informations ont bien été enregistrées' }));
+                history.push("/profile");
+            })
+            .catch((err) => {
+                dispatch(returnErrors(err.response.data, err.response.status));
+            });
     }
 }
 
 function processServerError(err) {
-        return Object.keys(err).reduce(function (newDict, key) {
+    return Object.keys(err).reduce(function (newDict, key) {
         if (key === "non_field_errs") {
             newDict["_err"].push(err[key]);
         } else if (key === "token") {
@@ -174,57 +170,44 @@ export const tokenConfig = () => {
     return config;
 };
 
-export const updateProfileData = (calories) => (dispatch,getState) => {
+export const updateHealthData = (calories) => (dispatch, getState) => {
     const config = configureConfig(getState)
-    const body = JSON.stringify({"daily_calories":calories})
-    axios.put('http://localhost:8000/api/profile', body,config)
-    .then(res=>{
-        dispatch({
-            type:UPDATE_PROFILE_DATA,
-            payload:res.data
+    const body = JSON.stringify({ "daily_calories": calories })
+    axios.put(AuthUrls.UPDATE_HEALTH_DATA, body, config)
+        .then(res => {
+            dispatch({
+                type: AuthTypes.UPDATE_HEALTH_DATA,
+                payload: res.data
+            })
         })
-    }).catch(err=>{
-        const errors = {
-            msg:err.response.data,
-            status:err.response.status
-        }
-        dispatch({
-            type:GET_ERRORS,
-            payload:errors
-        })
-    })
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+        });
 }
 
 const configureConfig = (getState) => {
     const token = getState().auth.token
-
     const config = {
-        headers:{
-            'Content-Type':'application/json'
+        headers: {
+            'Content-Type': 'application/json'
         }
-    }   
+    }
     if (token) {
         config.headers['Authorization'] = `Token ${token}`
     }
     return config
 }
 
-export const getProfileData = () => (dispatch,getState) => {
+export const getHealthData = () => (dispatch, getState) => {
     const config = configureConfig(getState)
-    axios.get('http://localhost:8000/api/profile',config)
-    .then(res=>{
-        dispatch({
-            type:GET_PROFILE_DATA,
-            payload:res.data
+    axios.get(AuthUrls.GET_HEALTH_DATA, config)
+        .then(res => {
+            dispatch({
+                type: AuthTypes.GET_HEALTH_DATA,
+                payload: res.data
+            })
         })
-    }).catch(err=>{
-        const errors = {
-            msg:err.response.data,
-            status:err.response.status
-        }
-        dispatch({
-            type:GET_ERRORS,
-            payload:errors
-        })
-    })
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+        });
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { reduxForm, propTypes } from "redux-form";
-import { activateUserAccount } from "../../actions/authActions";
+import { accountActivation } from "../../actions/authActions";
 import { renderError } from "../../utils/renderUtils";
 
 class AccountActivation extends Component {
@@ -33,5 +33,5 @@ class AccountActivation extends Component {
 
 export default reduxForm({
     form: "user_account_activation",
-    onSubmit: activateUserAccount,
+    onSubmit: accountActivation,
 })(AccountActivation);

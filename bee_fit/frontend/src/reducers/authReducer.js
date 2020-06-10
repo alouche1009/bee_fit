@@ -1,5 +1,4 @@
 import { AuthTypes } from "../constants/actionsTypes";
-import { GET_PROFILE_DATA, UPDATE_PROFILE_DATA} from "../actions/types"
 
 export default function(state = {}, action) {
     switch(action.type) {
@@ -9,8 +8,8 @@ export default function(state = {}, action) {
             return { ...state, authenticated: false, token: null};
         case AuthTypes.USER_PROFILE:
             return { ...state, user: action.payload, userCalorieGoal:action.payload};
-        case GET_PROFILE_DATA:
-        case UPDATE_PROFILE_DATA:
+        case AuthTypes.GET_HEALTH_DATA:
+        case AuthTypes.UPDATE_HEALTH_DATA:
             return {...state, userCalorieGoal:action.payload }
     }
     return state;

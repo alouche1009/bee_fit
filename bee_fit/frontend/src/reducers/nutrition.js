@@ -1,18 +1,4 @@
-import {
-    GET_BREAKFAST,
-    GET_CHEAT,
-    GET_DINNER,
-    GET_LUNCH,
-    GET_SNACKS,
-    ADD_MEAL,
-    EDIT_MEAL,
-    DELETE_MEAL,
-    GET_CALORIES,
-    UPDATE_CALORIES,
-    GET_WEIGHT,
-    UPDATE_WEIGHT
-    
-} from '../actions/types'
+import { CalTypes } from '../constants/actionsTypes'
 
 const initialState = {
     BREAKFAST:[],
@@ -29,36 +15,36 @@ const initialState = {
 
 export default function(state=initialState,action){
     switch(action.type){
-        case GET_BREAKFAST:
+        case CalTypes.GET_BREAKFAST:
             return{
                 ...state,
                 BREAKFAST:action.payload
             }
-        case GET_LUNCH:
+        case CalTypes.GET_LUNCH:
             return{
                 ...state,
                 LUNCH:action.payload
             }
         
-        case GET_DINNER:
+        case CalTypes.GET_DINNER:
             return{
                 ...state,
                 DINNER:action.payload
             }            
 
-        case ADD_MEAL:
+        case CalTypes.ADD_MEAL:
             return{
                 ...state,
                 [action.payload.meal_type]:[...state[action.payload.meal_type],action.payload]
             }
 
-        case DELETE_MEAL:
+        case CalTypes.DELETE_MEAL:
            return {
                ...state,
                [action.payload.meal_type]: state[action.payload.meal_type].filter(meal => meal.id !== action.payload.id)
            }
 
-        case EDIT_MEAL:
+        case CalTypes.EDIT_MEAL:
             return {
                 ...state,
                 [action.payload.meal_type]: state[action.payload.meal_type].map(meal =>{
@@ -73,7 +59,7 @@ export default function(state=initialState,action){
                 })
             }
 
-        case GET_CALORIES:
+        case CalTypes.GET_CALORIES:
             return {
                 ...state,
                 calories:{
@@ -84,7 +70,7 @@ export default function(state=initialState,action){
                 }
             }
 
-        case UPDATE_CALORIES:
+        case CalTypes.UPDATE_CALORIES:
             return {
                 ...state,
                 calories:{
@@ -94,8 +80,8 @@ export default function(state=initialState,action){
                     carbs:state.calories.carbs + action.payload.carbs
                 }
             }
-        case GET_WEIGHT:
-        case UPDATE_WEIGHT:
+        case CalTypes.GET_WEIGHT:
+        case CalTypes.UPDATE_WEIGHT:
             return {
                 ...state,
                 user_weight:action.payload

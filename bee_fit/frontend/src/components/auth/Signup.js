@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { reduxForm, Field, propTypes } from "redux-form";
 import { required } from "redux-form-validators"
 import { renderField, renderError } from "../../utils/renderUtils";
-import { signupUser } from "../../actions/authActions";
+import { signUp } from "../../actions/authActions";
 
 class Signup extends Component {
 
@@ -71,5 +71,5 @@ const validateForm = values => {
 export default reduxForm({
     form: "signup",
     validate: validateForm,
-    onSubmit: signupUser
+    onSubmit: signUp
 })(Signup);

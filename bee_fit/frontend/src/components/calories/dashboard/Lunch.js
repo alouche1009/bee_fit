@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loadLunchList,deleteMeal} from '../../../actions/calories'
+import {loadLunchList,deleteMeal} from '../../../actions/caloriesActions'
 import MealTable from './MealTable'
 
 class Lunch extends React.Component {

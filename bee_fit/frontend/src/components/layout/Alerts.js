@@ -29,8 +29,8 @@ export class Alerts extends Component {
       if (message.changePassword) alert.success(message.changePassword);
       if (message.resetPassword) alert.success(message.resetPassword);
       if (message.confirmPasswordChange) alert.success(message.confirmPasswordChange);
-      if (message.activateUserAccount) alert.success(message.activateUserAccount);
-      if (message.updateUserProfile) alert.success(message.updateUserProfile);
+      if (message.accountActivation) alert.success(message.accountActivation);
+      if (message.updateProfile) alert.success(message.updateProfile);
     }
   }
 

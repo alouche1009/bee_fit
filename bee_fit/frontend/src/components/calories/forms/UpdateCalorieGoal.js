@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {Card,Form,Button} from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
-import {getUserWeight,updateUserWeight}  from '../../../actions/calories'
-import {getProfileData,updateProfileData}  from '../../../actions/authActions'
+import {getUserWeight,updateUserWeight}  from '../../../actions/caloriesActions'
+import {getHealthData,updateHealthData}  from '../../../actions/authActions'
 
 const UpdateWeightForm = () =>{
     
@@ -10,7 +10,7 @@ const UpdateWeightForm = () =>{
     const [updatedCalorieGoal,setCalorieGoal] = useState(0)
     const onCalorieUpdate = (e) => {
         e.preventDefault()
-        dispatch(updateProfileData(updatedCalorieGoal))
+        dispatch(updateHealthData(updatedCalorieGoal))
         setCalorieGoal("")
     }
     return (

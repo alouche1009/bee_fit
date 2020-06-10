@@ -1,13 +1,12 @@
 import axios from 'axios';
-import { createMessage, returnErrors } from './messages';
-import { GET_PRODUCTS, FIND_PRODUCTS, PRODUCT_DETAILS } from './types';
-
+import { returnErrors } from './messagesActions';
+import { ProdTypes } from '../constants/actionsTypes';
 
   export function getProducts(dispatch) {
     return axios.get(`http://127.0.0.1:8000/products/`)
     .then((res) => {
       dispatch({
-        type: GET_PRODUCTS,
+        type: ProdTypes.GET_PRODUCTS,
         payload: res.data,
       });
     })
@@ -20,7 +19,7 @@ export function findProducts(dispatch, product_name) {
   return axios.get(`http://127.0.0.1:8000/products/?search=${product_name}`)
   .then((res) => {
     dispatch({
-      type: FIND_PRODUCTS,
+      type: ProdTypes.FIND_PRODUCTS,
       payload: res.data,
     });
   })
@@ -33,7 +32,7 @@ export function productDetails(dispatch, id) {
   return axios.get(`http://127.0.0.1:8000/products/${id}`)
   .then((res) => {
     dispatch({
-      type: PRODUCT_DETAILS,
+      type: ProdTypes.PRODUCT_DETAILS,
       payload: res.data,
     });
   })
