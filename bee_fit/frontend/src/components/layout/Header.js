@@ -15,7 +15,7 @@ export class Header extends Component {
     this.props.getUserProfile();
   }
 
-  renderLinks() {
+  authLinks() {
     const user = this.props.user;
     if (this.props.authenticated) {
       return [
@@ -55,6 +55,102 @@ export class Header extends Component {
       ];
     }
   }
+
+  navLinks() {
+    const user = this.props.user;
+    if (this.props.authenticated) {
+      return [
+        <ul class="navbar-nav mr-auto mx-auto ">
+          <li class="nav-item active">
+            <Link to="/" class="nav-link">
+              Accueil <span class="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Nos services
+          </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="/calories" class="dropdown-item">
+                {" "}
+              Mes calories, mon poids
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/allproducts" class="dropdown-item">
+                {" "}
+              Recherche d'aliments
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/fitness" class="dropdown-item">
+                {" "}
+              Programme fitness
+            </Link>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#qui">
+              Qui sommes nous ?
+          </a>
+          </li>
+        </ul>
+      ];
+    } else {
+      return [
+        <ul class="navbar-nav mr-auto mx-auto ">
+          <li class="nav-item active">
+            <Link to="/" class="nav-link">
+              Accueil <span class="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Nos services
+          </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="/login" class="dropdown-item" style={{ color: 'grey' }}>
+                {" "}
+                <i class="fas fa-user-lock " style={{ paddingRight: '8px', color: 'grey' }}></i>
+              Mes calories, mon poids
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/allproducts" class="dropdown-item">
+                {" "}
+              Recherche d'aliments
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/fitness" class="dropdown-item">
+                {" "}
+              Programme fitness
+            </Link>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#qui">
+              Qui sommes nous ?
+          </a>
+          </li>
+        </ul>
+
+      ];
+    }
+  }
+
   render() {
     return (
       <header>
@@ -64,7 +160,7 @@ export class Header extends Component {
           </Link>
         </div>
         <div class="container-fluid d-flex justify-content-end menu-login">
-          {this.renderLinks()}
+          {this.authLinks()}
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
@@ -79,48 +175,7 @@ export class Header extends Component {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mx-auto ">
-              <li class="nav-item active">
-                <Link to="/" class="nav-link">
-                  Accueil <span class="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Nos services
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link to="/calories" class="dropdown-item">
-                    {" "}
-                    Mes calories, mon poids
-                  </Link>
-                  <div class="dropdown-divider"></div>
-                  <Link to="/allproducts" class="dropdown-item">
-                    {" "}
-                    Recherche d'aliments
-                  </Link>
-                  <div class="dropdown-divider"></div>
-                  <Link to="/fitness" class="dropdown-item">
-                    {" "}
-                    Programme fitness
-                  </Link>
-                  <div class="dropdown-divider"></div>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#qui">
-                  Qui sommes nous ?
-                </a>
-              </li>
-            </ul>
+            {this.navLinks()}
           </div>
         </nav>
       </header>

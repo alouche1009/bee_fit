@@ -28,7 +28,6 @@ class UserProfile extends Component {
                     <h4>Taille: {user.taille}</h4>
                     <h4>Poids: {user.poids}</h4>
                     <h4>Mon poids idéal: {user.objectif_poids}</h4>
-                    <h4>Mes calories conseillées: {user.expected_calories}</h4>
                     <h4>Mes allergies: {user.allergies !== null ? user.allergies.join(', ') : user.allergies}</h4>
                     <h4>Je suis diabétique: {user.diabetique}</h4>
 

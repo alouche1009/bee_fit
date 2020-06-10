@@ -1,16 +1,14 @@
-import React,{useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {addFood} from '../../../actions/calories'
-import {Form,Col,Row,Button} from 'react-bootstrap'
-import SearchItem from './SearchItem'
-
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addFood } from '../../../actions/calories'
+import { Form, Col, Row, Button } from 'react-bootstrap'
 
 const CreateFoodForm = (props) => {
     
-    const [formData,setFormData] = useState({
-        name:"",
-        total_calories:"",
-        fat:"",
+    const [formData, setFormData] = useState({
+        name: "",
+        total_calories: "",
+        fat: "",
         protein:"",
         carbs:"",
         category:props.category
@@ -35,14 +33,13 @@ const CreateFoodForm = (props) => {
     const updateFoodInput = (e) => {
         setFormData({
             ...formData,
-            [e.target.id]:e.target.value
+            [e.target.id]: e.target.value
         })
     }
 
     return (
             <tr> 
-                <td><SearchItem /></td>
-                    <td>
+                        <td>
                         <Form.Control size="sm" id="name" type="name" value={formData.name} placeholder="Produit" onChange={(e) => updateFoodInput(e)}/> 
                     </td>
 
