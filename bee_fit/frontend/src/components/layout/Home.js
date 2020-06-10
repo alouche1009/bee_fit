@@ -53,7 +53,7 @@ export class Home extends Component {
                 </a>
               </div>
             </div>
-            <div class="col-md-2 mobile-img">
+            <div class="col-lg-2 mobile-img d-none d-xl-block">
               <img
                 src="../../static/frontend/images/app-exemple.png"
                 class="img-fluid"

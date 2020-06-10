@@ -10,37 +10,41 @@ from datetime import datetime as dt, timedelta
 
 User = get_user_model()
 
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
-@api_view(['GET','PUT'])
-@permission_classes([permissions.IsAuthenticated,])
+
+@api_view(['GET', 'PUT'])
+@permission_classes([permissions.IsAuthenticated, ])
 def health_detail(request):
-    health = Health.objects.get(id = request.user.health.id)
+    health = Health.objects.get(id=request.user.health.id)
 
     if request.method == 'GET':
         serializer = HealthSerializer(health)
         return Response(serializer. data)
-    
+
     if request.method == 'PUT':
         serializer = HealthSerializer(health, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(user=health.user)
         return Response(serializer.data)
 
-@api_view(['GET','POST'])
-@permission_classes([permissions.IsAuthenticated,])
+
+@api_view(['GET', 'POST'])
+@permission_classes([permissions.IsAuthenticated, ])
 def get_user_weight(request):
     today = dt.today()
     health = Health.objects.get(id=request.user.health.id)
 
     if request.method == "GET":
-        try:
-            user_weight = Weight.objects.get(user=request.user.health.id, date_recorded=today)
-            return Response({"Poids": user_weight.number})
-        except:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            try:
+                user_weight = Weight.objects.get(user=request.user.health.id,date_recorded=today)
+                return Response({"weight": user_weight.number})
+            except:
+                return Response({"error":"Weight record does not exist for today", "weight":0})
+    
 
     if request.method == "POST":  
         if Weight.objects.filter(user=request.user.health.id, date_recorded=today).exists():
@@ -52,7 +56,7 @@ def get_user_weight(request):
             serializer = WeightSerializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             serializer.save(user=health)
-        return Response({"message": "Votre poids a été mis à jour", "poids": serializer.data})
+        return Response({"message": "Votre poids a été mis à jour", "weight": serializer.data})
 
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated,])
@@ -62,5 +66,6 @@ def get_30_day_weight(request):
     user_weight = Weight.objects.filter(user=request.user.health.id, date_recorded__gte=thirty_days_ago)
     serializer = WeightSerializer(user_weight, many=True)
     return Response({
-        serializer.data
+         "message":"Here's yo food",
+        "data":serializer.data
     })

@@ -19,16 +19,16 @@ export class Footer extends Component {
           <div class="row p-top-perso-footer row d-flex align-items-end">
             <div class="col-md-12 d-flex justify-content-center">
               <div class="row icons text-center">
-                <div class="col-md-3 d-flex justify-content-center">
+                <div class="col-6 col-md-3 d-flex justify-content-center">
                   <a href="google.com" class="fab fa-facebook-f"></a>
                 </div>
-                <div class="col-md-3 d-flex justify-content-center">
+                <div class="col-6 col-md-3 d-flex justify-content-center">
                   <a class="fab fa-twitter"></a>
                 </div>
-                <div class="col-md-3 d-flex justify-content-center">
+                <div class="col-6 col-md-3 d-flex justify-content-center">
                   <a class="fab fa-instagram"></a>
                 </div>
-                <div class="col-md-3 d-flex justify-content-center">
+                <div class="col-6 col-md-3 d-flex justify-content-center">
                   <a class="fab fa-linkedin-in"></a>
                 </div>
               </div>
