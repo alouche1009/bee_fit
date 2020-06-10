@@ -18,7 +18,6 @@ class Login extends Component {
         <form className="col col-sm-4 card mt-5 p-2" onSubmit={handleSubmit}>
           <h4 className="text-md-center">Log In</h4>
           <hr />
-
           <fieldset className="form-group">
             <Field
               name="email"
@@ -28,7 +27,6 @@ class Login extends Component {
               validate={[required({ message: "Ce champ est requis." })]}
             />
           </fieldset>
-
           <fieldset className="form-group">
             <Field
               name="password"
@@ -38,14 +36,12 @@ class Login extends Component {
               validate={[required({ message: "Ce champ est requis." })]}
             />
           </fieldset>
-
           <fieldset className="form-group">
             {renderError(error)}
             <button action="submit" className="btn btn-primary">
               Login
             </button>
           </fieldset>
-
           <p style={{ textAlign: "center" }}>
             Pas encore membre ? <Link to="/signup">Rejoignez-nous ici!</Link>
           </p>

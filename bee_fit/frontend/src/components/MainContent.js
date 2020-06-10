@@ -13,10 +13,10 @@ import PasswordChange from "./auth/PasswordChange";
 import PasswordReset from "./auth/PasswordReset";
 import PasswordResetDone from "./auth/PasswordResetDone";
 import PasswordResetConfirm from "./auth/PasswordResetConfirm";
-import Search from "./Products/Search"
+import Search from "./Products/Search";
 import Fitness from "./layout/FitnessPage";
 import ProductDetails from "./Products/ProductDetails";
-import Dashboard from "./calories/dashboard/Dashboard"
+import Dashboard from "./calories/dashboard/Dashboard";
 
 const MainContent = () => (
   <div>

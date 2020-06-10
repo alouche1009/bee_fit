@@ -1,27 +1,27 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {loadDinnerList, deleteMeal} from '../../../actions/caloriesActions'
-import MealTable from './MealTable'
+import React from 'react';
+import { connect } from 'react-redux';
+import { loadDinnerList, deleteMeal } from '../../../actions/caloriesActions';
+import MealTable from './MealTable';
 
 class Dinner extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.loadDinnerList()
     }
 
     deleteDinner = (meal) => {
         this.props.deleteMeal(meal)
-        
+
     }
-    render(){
+    render() {
         return (
             <>
                 <h4 className="text-success">Diner</h4>
-                <MealTable 
-                    mealList = {this.props.dinnerList}
+                <MealTable
+                    mealList={this.props.dinnerList}
                     meal_type="DINNER"
                     onClickTrash={this.deleteDinner}
                 />
@@ -32,10 +32,10 @@ class Dinner extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        dinnerList:state.nutrition.DINNER
+        dinnerList: state.nutrition.DINNER
     }
 }
-export default connect(mapStateToProps,{
+export default connect(mapStateToProps, {
     loadDinnerList,
     deleteMeal
 })(Dinner)

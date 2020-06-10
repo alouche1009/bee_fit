@@ -3,9 +3,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router = DefaultRouter()
-router.register(r'api/meal', views.MealViewSet,basename='meal')
-
-
+router.register(r'api/meal', views.MealViewSet, basename='meal')
 
 urlpatterns = [
     path('api/user/total-calories',views.total_user_calories),

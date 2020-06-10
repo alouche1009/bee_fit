@@ -1,74 +1,63 @@
-import React from 'react'
-import {Container,Col,Row,Button} from 'react-bootstrap'
-import {connect} from 'react-redux'
-import {getHealthData} from '../../../actions/authActions'
-import UpdateWeight from '../forms/UpdateWeight'
-import UpdateCalorieGoal from '../forms/UpdateCalorieGoal'
-import DailyMeal from './DailyMeal'
-import TotalCalories from './TotalCalories'
-import Statistics from '../statistics/Statistics'
-import WeekAverages from './WeekAverage'
-
-
+import React from 'react';
+import { Container, Col, Row, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getHealthData } from '../../../actions/authActions';
+import DailyMeal from './DailyMeal';
+import TotalCalories from './TotalCalories';
+import Statistics from '../statistics/Statistics';
 
 class Dashboard extends React.Component {
 
     state = {
-        hideStatistics:true,
-        statsButtonColor:'outline-success',
-        mealLogButtonColor:'success'
+        hideStatistics: true,
+        statsButtonColor: 'outline-success',
+        mealLogButtonColor: 'success'
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getHealthData()
     }
 
     onClickShowStats = () => {
-        this.setState({hideStatistics:false,statsButtonColor:'success',mealLogButtonColor:'outline-success'})
+        this.setState({ hideStatistics: false, statsButtonColor: 'success', mealLogButtonColor: 'outline-success' })
     }
 
     onClickShowMealLog = () => {
-        this.setState({hideStatistics:true,statsButtonColor:'outline-success',mealLogButtonColor:'success'})
+        this.setState({ hideStatistics: true, statsButtonColor: 'outline-success', mealLogButtonColor: 'success' })
     }
 
-    render(){
-            return (
-                <>
-                    <TotalCalories />
-
-                    <Container fluid className="mt-3">
-
-                        <Row className="justify-content-center">
-                            <Button variant={this.state.mealLogButtonColor} className="mr-3" onClick={this.onClickShowMealLog}>
-                                Mes calories du jour
+    render() {
+        return (
+            <>
+                <TotalCalories />
+                <Container fluid className="mt-3">
+                    <Row className="justify-content-center">
+                        <Button variant={this.state.mealLogButtonColor} className="mr-3" onClick={this.onClickShowMealLog}>
+                            Mes calories du jour
                             </Button>
-
-                            <Button variant={this.state.statsButtonColor} onClick={this.onClickShowStats}>
-                                Mon suivi mensuel
+                        <Button variant={this.state.statsButtonColor} onClick={this.onClickShowStats}>
+                            Mon suivi mensuel
                             </Button>
-                        </Row>
-
-                        <Row>
-                            
-                            {this.state.hideStatistics ? 
+                    </Row>
+                    <Row>
+                        {this.state.hideStatistics ?
                             <>
-                            <Col md={{ span: 8, offset: 2 }}>
-                                <DailyMeal />
-                            </Col>
-                          </> : 
-                          <Statistics /> }
-                        </Row>
-                    </Container>
-                </>
+                                <Col md={{ span: 8, offset: 2 }}>
+                                    <DailyMeal />
+                                </Col>
+                            </> :
+                            <Statistics />}
+                    </Row>
+                </Container>
+            </>
         )
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
-        auth:state.auth
+        auth: state.auth
     }
 }
 
-export default connect(mapStateToProps,{getHealthData})(Dashboard)
+export default connect(mapStateToProps, { getHealthData })(Dashboard)

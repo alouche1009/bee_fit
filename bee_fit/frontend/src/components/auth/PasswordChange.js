@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { reduxForm, Field, propTypes } from "redux-form";
-import { required } from "redux-form-validators"
+import { required } from "redux-form-validators";
 import { changePassword } from "../../actions/authActions";
 import { renderField, renderError } from "../../utils/renderUtils";
 
@@ -27,19 +27,16 @@ class PasswordChange extends Component {
                             type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
-
                     <fieldset className="form-group">
                         <Field name="new_password1" label="Nouveau mot de passe" component={renderField}
                             type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
-
                     <fieldset className="form-group">
                         <Field name="new_password2" label="Confirmer le mot de passe" component={renderField}
                             type="password" validate={[required({ message: "Ce champ est requis." })]}
                         />
                     </fieldset>
-
                     <fieldset className="form-group">
                         {renderError(error)}
                         <button action="submit" className="btn btn-primary">Modifier</button>
@@ -54,7 +51,7 @@ const validateForm = values => {
     const errors = {};
     const { new_password1, new_password2 } = values;
     if (new_password1 !== new_password2) {
-        errors.new_password2 = "Password does not match."
+        errors.new_password2 = "Les mots de passe ne sont pas identiques"
     }
     return errors;
 };

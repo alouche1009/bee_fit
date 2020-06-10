@@ -11,7 +11,6 @@ export default class PasswordResetDone extends Component {
             <br/>
             <br/>
             Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer cet email.</h2>
-        
         </div>
         )
     }

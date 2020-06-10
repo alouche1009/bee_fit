@@ -1,6 +1,7 @@
 from django.db import models
 from user_profile.models import Health
 class Meal(models.Model):
+    
     MEAL_TYPES = (
         ('BREAKFAST','Breakfast'),
         ('LUNCH','Lunch'),

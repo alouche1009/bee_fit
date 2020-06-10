@@ -18,12 +18,11 @@ class AccountActivation extends Component {
                     className="col col-sm-4 card mt-5 p-2"
                     onSubmit={handleSubmit}
                 >
-                    <h4 className="text-md-center">Please click the button below to activate your account</h4>
-                    <hr/>
-
+                    <h4 className="text-md-center">Merci de cliquer sur ce lien pour activer votre compte</h4>
+                    <hr />
                     <fieldset className="form-group">
                         {renderError(error)}
-                        <button action="submit" className="btn btn-primary">Activate</button>
+                        <button action="submit" className="btn btn-primary">Activer</button>
                     </fieldset>
                 </form>
             </div>

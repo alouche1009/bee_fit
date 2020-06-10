@@ -10,8 +10,6 @@ from django.utils import timezone
 from datetime import datetime as dt, timedelta
 from django.db.models import Sum
 
-# Create your views here.
-
 class MealViewSet(viewsets.ModelViewSet):
     serializer_class = MealSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -19,6 +17,7 @@ class MealViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         today = dt.today()
         tomorrow = today + timedelta(1)
+
         return Meal.objects.filter(user=self.request.user.health.id, dayDate__range=[today, tomorrow])
     
     def perform_create(self,serializer):
@@ -29,38 +28,41 @@ class MealViewSet(viewsets.ModelViewSet):
 def breakfast_list(request):
     today = dt.today()
     tomorrow = today + timedelta(1)
+
     try:
-        breakfast = Meal.objects.filter(user=request.user.health.id,meal_type="BREAKFAST",dayDate__range=[today,tomorrow])
+        breakfast = Meal.objects.filter(user=request.user.health.id, meal_type="BREAKFAST", dayDate__range=[today, tomorrow])
         print(breakfast)
         serializer = MealSerializer(breakfast, many=True)
-        return Response({"message":"here's yo food","data":serializer.data})
+        return Response({"message":"Votre petit-déjeuner", "data": serializer.data})
     except:
-        return Response({"message":"No breakfast found"})
-    
+        return Response({"message":"Aucun petit-déjeuner"})
 
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated,])
 def lunch_list(request):
     today = dt.today()
     tomorrow = today + timedelta(1)
+
     try:
         lunch = Meal.objects.filter(user=request.user.health.id, meal_type="LUNCH", dayDate__range=[today, tomorrow])
         serializer = MealSerializer(lunch, many=True)
-        return Response({"message":"here's yo food","data":serializer.data})
+        return Response({"message":"Votre déjeuner", "data": serializer.data})
     except:
-        return Response({"message":"No lunch found"})
+        return Response({"message":"Aucun déjeuner"})
  
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated,])
 def dinner_list(request):
     today = dt.today()
     tomorrow = today + timedelta(1)
+
     try:
         dinner = Meal.objects.filter(user=request.user.health.id, meal_type="DINNER", dayDate__range=[today, tomorrow])
         serializer = MealSerializer(dinner, many=True)
-        return Response({"message":"here's yo food","data":serializer.data})
+        return Response({"message":"Votre dîner", "data": serializer.data})
     except:
-        return Response({"message":"No dinner found"})
+        return Response({"message":"Aucun dîner"})
+
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated,])
 def total_user_calories(request):
@@ -73,17 +75,17 @@ def total_user_calories(request):
     proteinCalories = total["protein__sum"]
     carbsCalories = total["carbs__sum"]
 
-    return Response({"message":"here's you food data","data":{"date":today,"totalCalories":totalCalories,"fatCalories":fatCalories,"proteinCalories":proteinCalories,"carbsCalories":carbsCalories}})
-
+    return Response({"message":"Vos calories","data":{"date":today,"totalCalories":totalCalories, "fatCalories":fatCalories, "proteinCalories":proteinCalories, "carbsCalories":carbsCalories}})
 
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated])
 def get_30_days_calories(request):
     today = dt.today()
     thirty_days_ago = today - timedelta(30)
-    user_meal = Meal.objects.filter(user=request.user.health.id,dayDate__gte=thirty_days_ago)
+    user_meal = Meal.objects.filter(user=request.user.health.id, dayDate__gte=thirty_days_ago)
     filtered_meal = user_meal.values('dayDate').annotate(totalCalories=Sum('daily_calories'))
+    
     return Response({
-        "message":"Here's yo food",
+        "message":"Vos calories ce mois-ci",
         "data":filtered_meal
     })
