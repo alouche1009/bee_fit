@@ -16,18 +16,18 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from rest_auth.registration.views import VerifyEmailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('user_profile.urls')),
     path('', include('products.urls')),
-    path('', include('calories_tracker.urls'))
-    
+    path('', include('calories_tracker.urls')),    
 ]
 
 if settings.DEBUG:

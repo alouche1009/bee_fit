@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from multiselectfield import MultiSelectField
@@ -11,6 +10,7 @@ from django.db.models.signals import post_save, pre_delete
 User = get_user_model()
 
 class UserProfile(models.Model):
+
     LACTOSE = 'LACTOSE'
     GLUTEN = 'GLUTEN'
     VEGETARIEN = 'VEGETARIEN'
@@ -37,6 +37,7 @@ class UserProfile(models.Model):
         (ARACHIDES, 'Arachides'),
         (FRUITS_DE_MER, 'Fruits de mer'),
     ]
+
     age = models.PositiveIntegerField(
         validators=[MaxValueValidator(100), MinValueValidator(18)], blank=True, null=True)
     sexe = models.CharField(
@@ -67,6 +68,8 @@ class UserProfile(models.Model):
     def create_profile_for_user(sender, instance=None, created=False, **kwargs):
         if created:
             UserProfile.objects.get_or_create(user=instance)
+        else:
+            pass
 
     @receiver(pre_delete, sender=User)
     def delete_profile_for_user(sender, instance=None, **kwargs):
@@ -74,24 +77,22 @@ class UserProfile(models.Model):
             user_profile = UserProfile.objects.get(user=instance)
             user_profile.delete()
 
-
-class Profile(models.Model):
+class Health(models.Model):
     daily_calories = models.IntegerField(null=True)
     goal_weight = models.FloatField(null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
-def post_save_user_model_receiver(sender,instance,created,*args,**kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-    else:
-        pass
+    @receiver(post_save, sender=User)
+    def create_health_for_user(sender, instance, created, *args, **kwargs):
+        if created:
+            Health.objects.get_or_create(user=instance)
+        else:
+            pass
 
 class Weight(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Health, on_delete=models.CASCADE)
     number = models.FloatField()
     date_recorded = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.user} - {self.number} - {self.date_recorded}"
-
-post_save.connect(post_save_user_model_receiver,sender=User)

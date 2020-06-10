@@ -26,6 +26,7 @@ const allergiesOptions = [
     value: 'Fruits de mer',
     label: '🦐 Fruits de mer et crustacés'
   },
+  
 ]
 
 const sexOptions = [
@@ -103,6 +104,7 @@ export class Login extends Component {
   render() {
     const { age, sexe, taille, poids, objectif_poids, allergies, diabetique } = this.state;
     return (
+      <div className="container fluid" style={{ marginBottom: '4rem' }}>
       <div class="card" style={{ marginTop: '4rem' }}>
         <h5 class="card-header info-color white-text text-center py-4">
           <strong>Mettre à jour mes informations</strong>
@@ -195,6 +197,7 @@ export class Login extends Component {
             </div>
           </form>
         </div>
+      </div>
       </div>
     );
   }

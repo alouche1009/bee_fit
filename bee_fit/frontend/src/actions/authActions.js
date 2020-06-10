@@ -1,6 +1,5 @@
 import axios from "axios";
 import history from "../utils/historyUtils";
-import { SubmissionError } from 'redux-form';
 import { AuthTypes } from "../constants/actionsTypes";
 import { AuthUrls } from "../constants/urls";
 import store from "../store";
@@ -47,7 +46,7 @@ export function signupUser(formValues, dispatch, props) {
         });
 }
 
-function setUserProfile(payload) {
+export function setUserProfile(payload) {
     return {
         type: AuthTypes.USER_PROFILE,
         payload: payload
@@ -122,17 +121,14 @@ export function activateUserAccount(formValues, dispatch, props) {
     const { key } = props.match.params;
     const activateUserUrl = AuthUrls.USER_ACTIVATION;
     const data = Object.assign(formValues, { key });
-    return dispatch => {
-
 
     return axios.post(activateUserUrl, data)
         .then(res => {
             dispatch(createMessage({ activateUserAccount: 'Votre compte est bien activé! Veuillez vous connecter' }));
-            history.push("/");
+            history.push("/login");
         }).catch((err) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
-}
 }
 
 export function updateUserProfile(formValues, dispatch, props) {
@@ -198,7 +194,7 @@ export const updateProfileData = (calories) => (dispatch,getState) => {
         })
     })
 }
-// helper function
+
 const configureConfig = (getState) => {
     const token = getState().auth.token
 
@@ -206,12 +202,10 @@ const configureConfig = (getState) => {
         headers:{
             'Content-Type':'application/json'
         }
-    }
-    
+    }   
     if (token) {
         config.headers['Authorization'] = `Token ${token}`
     }
-
     return config
 }
 

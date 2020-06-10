@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: [https://localhost:8000] Confirmez votre adresse e-mail
+From: admin@bee_fit.com
+To: aurcxxcoree.louche@orange.fr
+Date: Wed, 10 Jun 2020 09:37:41 -0000
+Message-ID: <159178186147.43135.2015373926760381600@DESKTOP-UPMQAJM>
+
+Hello from https://localhost:8000!
+
+Vous recevez cet email car l'utilisateur ssds a fourni votre adresse pour s'enregistrer sur le site Bee-Fit.
+
+Si vous êtes à l'origine de cette demande, merci de cliquer sur ce lien pour activer votre compte : https://localhost:8000/rest-auth/registration/verify-email/Mjk:1jixAz:44rYDoWOt-baR1zJQcYMeYDoUY4/ .
+
+Si vous n'êtes pas à l'origine de cette demande, vous pouvez ignorer cet email (ou nous rejoindre quand même).
+
+ Merci de rejoindre l'aventure Bee-Fit!
+https://localhost:8000
+-------------------------------------------------------------------------------

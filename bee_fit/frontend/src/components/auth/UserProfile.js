@@ -20,7 +20,7 @@ class UserProfile extends Component {
         console.log(user);
         if (user) {
             return (
-                <div className="mx-2">
+                <div >
                     <h4>Username: {user.username}</h4>
                     <h4>Email: {user.email}</h4>
                     <h4>Age: {user.age}</h4>
@@ -28,9 +28,8 @@ class UserProfile extends Component {
                     <h4>Taille: {user.taille}</h4>
                     <h4>Poids: {user.poids}</h4>
                     <h4>Mon poids idéal: {user.objectif_poids}</h4>
-                    <h4>Mes allergies: {user.allergies !== null ? user.allergies.join(', ') : user.allergies}</h4>
+                    <h4>Mes allergies: {user.allergies ? user.allergies.join(', ') : user.allergies}</h4>
                     <h4>Je suis diabétique: {user.diabetique}</h4>
-
                 </div>
             );
         }
@@ -39,8 +38,8 @@ class UserProfile extends Component {
 
     render() {
         return (
-            <div>
-                {this.renderUser()}
+            <div style={{ marginTop: '4rem', marginBottom: '4rem'}}>
+            {this.renderUser()}
                 {" "}
                 <hr />
                 <Link className="btn btn-primary mr-2" to="/profile_edit">Modifier mon profil</Link>

@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from rest_auth.serializers import UserDetailsSerializer
-
+from django.contrib.auth.models import User
+from .models import Health, Weight
+from django.contrib.auth import authenticate
 
 class UserSerializer(UserDetailsSerializer):
 
@@ -29,7 +31,6 @@ class UserSerializer(UserDetailsSerializer):
 
         instance = super(UserSerializer, self).update(instance, validated_data)
 
-        # get and update user profile
         profile = instance.userprofile
         if profile_data:
             if age:
@@ -51,17 +52,12 @@ class UserSerializer(UserDetailsSerializer):
             profile.save()
         return instance
 
-from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Profile,Weight
-from django.contrib.auth import authenticate
-
 class WeightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weight
         fields = ['number','date_recorded']
 
-class ProfileSerializer(serializers.ModelSerializer):
+class HealthSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profile
+        model = Health
         fields = ['daily_calories']
