@@ -25,7 +25,6 @@ export default class Product extends Component {
         sugars_100g: "",
         proteins_100g: "",
         glycemic_index_100g: "",
-        image_nutrition_url: ""
       },
     };
   }
@@ -54,8 +53,27 @@ export default class Product extends Component {
       <div className="container fontFoodDetail">
         <Row className="p-top-perso align-items-center">
           <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src={currentProduct.image_url} alt="" /></Col>
-          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src={currentProduct.image_ingredients_url} alt="" /></Col>
-          <Col className="text-center" md={{ span: 8 }}>
+          {currentProduct.nutriscore_grade === 'a' ?
+          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src='../static/frontend/images/A.png' alt="" /></Col>
+          :  <Col></Col>
+           }
+          {currentProduct.nutriscore_grade === 'b' ?
+          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src='../static/frontend/images/B.png' alt="" /></Col>
+          :  <Col></Col>
+          }
+                    {currentProduct.nutriscore_grade === 'c' ?
+          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src='../static/frontend/images/C.png' alt="" /></Col>
+          :  <Col></Col>
+          }
+          {currentProduct.nutriscore_grade === 'd' ?
+          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src='../static/frontend/images/D.png' alt="" /></Col>
+          :  <Col></Col>
+          }
+          {currentProduct.nutriscore_grade === 'e' ?
+          <Col md={{ span: 2 }}><img class=" img-fluid prodImage img-thumbnail" src='../static/frontend/images/E.png' alt="" /></Col>
+          :  <Col></Col>
+          }
+          <Col className="text-center" md={{ span: 6 }}>
             <h2>{currentProduct.product_name}</h2>
             <p className="p-top-perso">{currentProduct.categories}</p>
           </Col>

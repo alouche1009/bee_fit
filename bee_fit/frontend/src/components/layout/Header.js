@@ -81,7 +81,17 @@ export class Header extends Component {
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link to="/calories" class="dropdown-item">
                 {" "}
-              Mes calories, mon poids
+              Mes calories
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/weight" class="dropdown-item">
+                {" "}
+              Mon poids
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/BMI" class="dropdown-item">
+                {" "}
+              Mon IMC
             </Link>
               <div class="dropdown-divider"></div>
               <Link to="/allproducts" class="dropdown-item">
@@ -126,7 +136,18 @@ export class Header extends Component {
               <Link to="/login" class="dropdown-item" style={{ color: 'grey' }}>
                 {" "}
                 <i class="fas fa-user-lock " style={{ paddingRight: '8px', color: 'grey' }}></i>
-              Mes calories, mon poids
+              Mes calories
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/login" class="dropdown-item" style={{ color: 'grey' }}>
+                {" "}
+                <i class="fas fa-user-lock " style={{ paddingRight: '8px', color: 'grey' }}></i>
+              Mon poids
+            </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/BMI" class="dropdown-item">
+                {" "}
+              Mon IMC
             </Link>
               <div class="dropdown-divider"></div>
               <Link to="/allproducts" class="dropdown-item">

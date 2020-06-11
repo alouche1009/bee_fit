@@ -1,5 +1,5 @@
 import { updateProfile } from "../../actions/authActions";
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
@@ -25,6 +25,10 @@ const allergiesOptions = [
   {
     value: 'Fruits de mer',
     label: '🦐 Fruits de mer et crustacés'
+  },
+  {
+    value: '',
+    label: '⭕ RAS'
   },
   
 ]
@@ -86,15 +90,13 @@ export class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { age, sexe, taille, poids, objectif_poids, allergies, diabetique } = this.state;
-    const info = { age, sexe, taille, poids, objectif_poids, allergies, diabetique };
+    const { age, sexe, taille,  allergies, diabetique } = this.state;
+    const info = { age, sexe, taille,  allergies, diabetique };
     this.props.updateProfile(info);
     this.setState({
       age: '',
       sexe: '',
       taille: '',
-      poids: '',
-      objectif_poids: '',
       allergies: [],
       diabetique: '',
     });
@@ -102,7 +104,7 @@ export class Login extends Component {
   };
 
   render() {
-    const { age, sexe, taille, poids, objectif_poids, allergies, diabetique } = this.state;
+    const { age, sexe, taille,  allergies, diabetique } = this.state;
     return (
       <div className="container fluid" style={{ marginBottom: '4rem' }}>
       <div class="card" style={{ marginTop: '4rem' }}>
@@ -138,28 +140,6 @@ export class Login extends Component {
                 onChange={this.onChange}
                 value={taille}
                 placeholder="Taille (cm)"
-                style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
-              />
-            </div>
-            <div className="md-form mt-5">
-              <input
-                className="form-control"
-                type="text"
-                name="poids"
-                onChange={this.onChange}
-                value={poids}
-                placeholder="Poids (Kg)"
-                style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
-              />
-            </div>
-            <div className="md-form mt-5">
-              <input
-                className="form-control"
-                type="text"
-                name="objectif_poids"
-                onChange={this.onChange}
-                value={objectif_poids}
-                placeholder="Mon poids idéal (Kg)"
                 style={{ border: 0, borderBottom: '1px solid rgba(0, 0, 0, 0.5)' }}
               />
             </div>

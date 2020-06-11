@@ -1,8 +1,8 @@
 BEE-FIT
 
-    Bee-fit est une plateforme centrée sur la nutrition et la santé développée avec le framework Django en backend et React en frontend.
+    Bee-fit est une plateforme centrée sur la calories et la santé développée avec le framework Django en backend et React en frontend.
     Elle a pour vocation de proposer à ses utilisateurs une suite d’outils complète pour suivre leurs apports
-    nutritionnels quotidiens et leur poids, maîtriser leur alimentation et réaliser des entraînements sportifs.
+    caloriesnels quotidiens et leur poids, maîtriser leur alimentation et réaliser des entraînements sportifs.
 
 Getting Started
 

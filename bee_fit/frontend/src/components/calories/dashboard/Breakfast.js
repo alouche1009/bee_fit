@@ -20,7 +20,7 @@ class Breakfast extends React.Component{
     render(){
         return (
             <>
-                <h4 className="text-success">Petit déjeuner</h4>
+                <h4>Petit déjeuner</h4>
                 <MealTable 
                     mealList = {this.props.breakfastList}
                     meal_type="BREAKFAST"
@@ -33,7 +33,7 @@ class Breakfast extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        breakfastList:state.nutrition.BREAKFAST
+        breakfastList: state.calories.BREAKFAST
     }
 }
 

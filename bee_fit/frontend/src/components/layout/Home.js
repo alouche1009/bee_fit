@@ -137,14 +137,14 @@ export class Home extends Component {
                     <div class="row no-padding-b p-b-img">
                       <div class="col-md-6">
                         <img
-                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          src="../../static/frontend/images/aliments.png"
                           class="img-fluid"
                           alt="Responsive image"
                         />
                       </div>
                       <div class="col-md-6">
                         <img
-                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          src="../../static/frontend/images/calories.png"
                           class="img-fluid"
                           alt="Responsive image"
                         />
@@ -153,14 +153,14 @@ export class Home extends Component {
                     <div class="row no-padding-b">
                       <div class="col-md-6">
                         <img
-                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          src="../../static/frontend/images/alim.png"
                           class="img-fluid"
                           alt="Responsive image"
                         />
                       </div>
                       <div class="col-md-6">
                         <img
-                          src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg"
+                          src="../../static/frontend/images/fitness.png"
                           class="img-fluid"
                           alt="Responsive image"
                         />

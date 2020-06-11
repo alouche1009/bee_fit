@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { getHealthData } from '../../../actions/authActions';
 import DailyMeal from './DailyMeal';
 import TotalCalories from './TotalCalories';
-import Statistics from '../statistics/Statistics';
+import CalStats from '../statistics/CalStats';
 
 class Dashboard extends React.Component {
 
     state = {
         hideStatistics: true,
-        statsButtonColor: 'outline-success',
-        mealLogButtonColor: 'success'
+        statsButtonColor: 'btn btn-outline-primary',
+        mealLogButtonColor: 'btn btn-primary'
     }
 
     componentDidMount() {
@@ -19,11 +19,11 @@ class Dashboard extends React.Component {
     }
 
     onClickShowStats = () => {
-        this.setState({ hideStatistics: false, statsButtonColor: 'success', mealLogButtonColor: 'outline-success' })
+        this.setState({ hideStatistics: false, statsButtonColor: 'btn btn-primary', mealLogButtonColor: 'btn btn-outline-primary' })
     }
 
     onClickShowMealLog = () => {
-        this.setState({ hideStatistics: true, statsButtonColor: 'outline-success', mealLogButtonColor: 'success' })
+        this.setState({ hideStatistics: true, statsButtonColor: 'btn btn-outline-primary', mealLogButtonColor: 'btn btn-primary' })
     }
 
     render() {
@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
                                     <DailyMeal />
                                 </Col>
                             </> :
-                            <Statistics />}
+                            <CalStats />}
                     </Row>
                 </Container>
             </>

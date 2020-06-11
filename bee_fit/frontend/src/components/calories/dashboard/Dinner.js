@@ -19,7 +19,7 @@ class Dinner extends React.Component {
     render() {
         return (
             <>
-                <h4 className="text-success">Diner</h4>
+                <h4>Diner</h4>
                 <MealTable
                     mealList={this.props.dinnerList}
                     meal_type="DINNER"
@@ -32,7 +32,7 @@ class Dinner extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        dinnerList: state.nutrition.DINNER
+        dinnerList: state.calories.DINNER
     }
 }
 export default connect(mapStateToProps, {

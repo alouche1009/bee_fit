@@ -17,6 +17,8 @@ import Search from "./Products/Search";
 import Fitness from "./layout/FitnessPage";
 import ProductDetails from "./Products/ProductDetails";
 import Dashboard from "./calories/dashboard/Dashboard";
+import Weight from "./calories/dashboard/Weight";
+import BMICalc from './calories/dashboard/BMIcalc';
 
 const MainContent = () => (
   <div>
@@ -37,8 +39,8 @@ const MainContent = () => (
       <Route path="/allproducts" component ={Search} />
       <Route path="/products/:id" component ={ProductDetails} />
       <Route path="/calories" exact component={Dashboard} />
-
-
+      <Route path="/weight" exact component={Weight} />
+      <Route path="/BMI" exact component={BMICalc} />
     </Switch>
   </div>
 );
