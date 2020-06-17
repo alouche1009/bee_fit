@@ -8,14 +8,6 @@ export class Fitness extends Component {
 					<div class="container">
 						<div class="row p-top-perso">
 							<div class="col-md-12">
-								<blockquote class="blockquote">
-									<p class="mb-0 text-center">
-										Du sport tu feras, bonne tu seras.
-				</p>
-									<footer class="blockquote-footer text-center">
-										Marco
-				</footer>
-								</blockquote>
 							</div>
 						</div>
 						<div class="row">

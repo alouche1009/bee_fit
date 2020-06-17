@@ -10,7 +10,7 @@ export class Footer extends Component {
             <div class="col-md-12 d-flex justify-content-center p-top-perso">
               {" "}
               <div id="head-logo">
-                <Link class="navbar-brand" to="/">
+                <Link to="/" class="navbar-brand">
                   <img src="../../static/frontend/images/logo_blanc.png" />
                 </Link>
               </div>

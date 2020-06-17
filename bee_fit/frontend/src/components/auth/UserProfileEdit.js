@@ -100,7 +100,7 @@ export class Login extends Component {
       allergies: [],
       diabetique: '',
     });
-    this.props.history.push('/profile');
+    this.props.history.push('/');
   };
 
   render() {

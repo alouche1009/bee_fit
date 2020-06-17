@@ -136,7 +136,7 @@ export function updateProfile(formValues, dispatch, props) {
         })
             .then(response => {
                 dispatch(createMessage({ updateProfile: 'Vos informations ont bien été enregistrées' }));
-                history.push("/profile");
+                history.push("/");
             })
             .catch((err) => {
                 dispatch(returnErrors(err.response.data, err.response.status));
